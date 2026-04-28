@@ -1,0 +1,2841 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drelife Sports | Fan-to-Fan Marketplace Deck</title>
+    <meta
+      name="description"
+      content="Drelife helps sports clubs launch and control their official fan-to-fan resale marketplace."
+    />
+    <meta name="author" content="Drelife" />
+    <meta property="og:title" content="Drelife Sports | Fan-to-Fan Marketplace Deck" />
+    <meta
+      property="og:description"
+      content="Turn resale into a new channel for engagement, revenue, and circularity."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Drelife Sports | Fan-to-Fan Marketplace Deck" />
+    <meta
+      name="twitter:description"
+      content="Turn resale into a new channel for engagement, revenue, and circularity."
+    />
+
+    <style>
+      :root {
+        --background: #fbfbfb;
+        --foreground: #111111;
+        --panel: #f2f4f3;
+        --paper: #ffffff;
+        --muted: #686868;
+        --muted-strong: #444444;
+        --divider: #dddddd;
+        --accent: #BEFF00;
+        --accent-ink: #BEFF00;
+        --blue: #2377ff;
+        --blue-soft: #eaf2ff;
+        --shadow: 0 18px 60px rgba(17, 17, 17, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--background);
+        color: var(--foreground);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        letter-spacing: 0;
+      }
+
+      body::selection {
+        background: var(--accent);
+        color: var(--foreground);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        min-height: 72px;
+        padding: 18px 48px;
+        border-bottom: 1px solid rgba(221, 221, 221, 0.78);
+        background: rgba(251, 251, 251, 0.84);
+        backdrop-filter: blur(18px);
+      }
+
+      .progress {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        z-index: 55;
+        width: 100%;
+        height: 2px;
+        background: transparent;
+      }
+
+      .progress__bar {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent), var(--blue));
+        transition: width 160ms linear;
+      }
+
+      .topbar-left,
+      .brand,
+      .meta {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .lang-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 28px;
+        border: 1px solid rgba(17, 17, 17, 0.16);
+        border-radius: 999px;
+        background: var(--accent);
+        color: var(--foreground);
+        font: inherit;
+        font-size: 11px;
+        font-weight: 760;
+        letter-spacing: 0.14em;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .brand__dot,
+      .accent-dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        flex: 0 0 auto;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      .brand__name {
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .brand__context,
+      .meta {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .meta__divider {
+        width: 1px;
+        height: 14px;
+        background: var(--divider);
+      }
+
+      .side-nav {
+        position: fixed;
+        right: 34px;
+        top: 50%;
+        z-index: 45;
+        transform: translateY(-50%);
+      }
+
+      .side-nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .side-nav a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        min-height: 22px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .side-nav span:first-child {
+        opacity: 0;
+        transform: translateX(6px);
+        transition: opacity 240ms ease, transform 240ms ease;
+        white-space: nowrap;
+      }
+
+      .side-nav span:last-child {
+        display: block;
+        width: 18px;
+        height: 1px;
+        background: var(--divider);
+        transition: width 260ms ease, background 260ms ease;
+      }
+
+      .side-nav a:hover span:first-child,
+      .side-nav a.is-active span:first-child {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .side-nav a.is-active {
+        color: var(--foreground);
+      }
+
+      .side-nav a.is-active span:last-child {
+        width: 34px;
+        background: var(--foreground);
+      }
+
+      .slide {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-height: 100svh;
+        padding: 116px 96px 84px;
+        border-top: 1px solid var(--divider);
+        overflow: hidden;
+        scroll-margin-top: 72px;
+      }
+
+      .slide:first-of-type {
+        border-top: 0;
+      }
+
+      .slide--soft {
+        background: var(--panel);
+      }
+
+      .slide--dark {
+        background: var(--foreground);
+        color: var(--paper);
+      }
+
+      .slide--grid::before,
+      .slide--dark::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.05;
+        background-image:
+          linear-gradient(to right, currentColor 1px, transparent 1px),
+          linear-gradient(to bottom, currentColor 1px, transparent 1px);
+        background-size: 80px 80px;
+      }
+
+      .container {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 1240px);
+        margin: 0 auto;
+      }
+
+      .grid {
+        display: grid;
+        gap: 48px;
+      }
+
+      .grid--hero {
+        grid-template-columns: minmax(0, 1.18fr) minmax(360px, 0.82fr);
+        align-items: center;
+      }
+
+      .grid--two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid--three {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid--four {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .grid--split {
+        grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+        align-items: start;
+      }
+
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 34px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .section-label::before {
+        content: "";
+        display: inline-block;
+        width: 26px;
+        height: 1px;
+        background: currentColor;
+      }
+
+      .slide--dark .section-label,
+      .slide--dark .muted,
+      .slide--dark .sub-text {
+        color: rgba(255, 255, 255, 0.68);
+      }
+
+      .eyebrow-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+        margin-top: 70px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .headline-xl,
+      .headline,
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      .headline-xl {
+        margin-bottom: 0;
+        font-size: 88px;
+        font-weight: 640;
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .headline {
+        margin-bottom: 0;
+        font-size: 58px;
+        font-weight: 620;
+        line-height: 1.06;
+        letter-spacing: 0;
+      }
+
+      .italic {
+        font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+        font-style: italic;
+        font-weight: 400;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .sub-text {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 20px;
+        font-weight: 360;
+        line-height: 1.58;
+      }
+
+      .lead-block {
+        display: flex;
+        align-items: flex-start;
+        gap: 22px;
+        max-width: 650px;
+        margin-top: 42px;
+      }
+
+      .accent-bar {
+        display: block;
+        width: 42px;
+        height: 2px;
+        flex: 0 0 auto;
+        margin-top: 15px;
+        background: var(--accent);
+      }
+
+      .dark-bar {
+        background: var(--paper);
+      }
+
+      .divider-top {
+        margin-top: 32px;
+        padding-top: 26px;
+        border-top: 1px solid var(--divider);
+      }
+
+      .callout {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--foreground);
+        font-size: 15px;
+        font-weight: 720;
+      }
+
+      .tile-grid {
+        display: grid;
+        gap: 1px;
+        border: 1px solid var(--divider);
+        background: var(--divider);
+      }
+
+      .tile {
+        min-height: 250px;
+        padding: 34px;
+        background: var(--paper);
+      }
+
+      .tile--hover {
+        transition: color 260ms ease, background 260ms ease, transform 260ms ease;
+      }
+
+      .tile--hover:hover {
+        background: var(--foreground);
+        color: var(--paper);
+      }
+
+      .tile--hover:hover .muted,
+      .tile--hover:hover .stat-detail {
+        color: rgba(255, 255, 255, 0.68);
+      }
+
+      .tile-kicker {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .stat-value {
+        margin-top: 72px;
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 0.95;
+      }
+
+      .stat-label {
+        margin-top: 22px;
+        font-size: 17px;
+        font-weight: 720;
+        line-height: 1.24;
+      }
+
+      .stat-detail {
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 360;
+        line-height: 1.52;
+      }
+
+      .benefit-title,
+      .capability-title,
+      .step-title {
+        margin-bottom: 0;
+        font-size: 24px;
+        font-weight: 720;
+        line-height: 1.2;
+      }
+
+      .benefit-copy,
+      .capability-copy,
+      .step-copy {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 360;
+        line-height: 1.58;
+      }
+
+      .benefit-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 280px;
+      }
+
+      .capability-card {
+        min-height: 220px;
+      }
+
+      .capability-title {
+        margin-top: 46px;
+        font-size: 21px;
+      }
+
+      .marketplace-map {
+        position: relative;
+        min-height: 520px;
+        padding: 34px;
+        border: 1px solid var(--divider);
+        background:
+          linear-gradient(135deg, rgba(190, 255, 0, 0.12), transparent 34%),
+          linear-gradient(315deg, rgba(35, 119, 255, 0.1), transparent 36%),
+          var(--paper);
+        box-shadow: var(--shadow);
+      }
+
+      .map-grid {
+        position: absolute;
+        inset: 0;
+        opacity: 0.34;
+        background-image:
+          linear-gradient(to right, rgba(17, 17, 17, 0.08) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(17, 17, 17, 0.08) 1px, transparent 1px);
+        background-size: 38px 38px;
+      }
+
+      .map-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: grid;
+        place-items: center;
+        width: 154px;
+        height: 154px;
+        border: 1px solid rgba(17, 17, 17, 0.16);
+        border-radius: 999px;
+        background: var(--foreground);
+        color: var(--paper);
+        transform: translate(-50%, -50%);
+      }
+
+      .map-center strong {
+        font-size: 34px;
+        line-height: 1;
+      }
+
+      .map-center span {
+        display: block;
+        margin-top: 8px;
+        color: rgba(255, 255, 255, 0.62);
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .map-node {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 120px;
+        min-height: 52px;
+        padding: 12px 16px;
+        border: 1px solid rgba(17, 17, 17, 0.16);
+        background: rgba(255, 255, 255, 0.86);
+        color: var(--muted-strong);
+        font-size: 13px;
+        font-weight: 760;
+        text-align: center;
+      }
+
+      .map-node::after {
+        content: "";
+        position: absolute;
+        width: 86px;
+        height: 1px;
+        background: rgba(17, 17, 17, 0.18);
+      }
+
+      .map-node--top {
+        top: 52px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .map-node--top::after {
+        top: 100%;
+        left: 50%;
+        transform: rotate(90deg);
+        transform-origin: left center;
+      }
+
+      .map-node--right {
+        top: 50%;
+        right: 36px;
+        transform: translateY(-50%);
+      }
+
+      .map-node--right::after {
+        top: 50%;
+        right: 100%;
+      }
+
+      .map-node--bottom {
+        bottom: 52px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .map-node--bottom::after {
+        bottom: 100%;
+        left: 50%;
+        transform: rotate(90deg);
+        transform-origin: left center;
+      }
+
+      .map-node--left {
+        top: 50%;
+        left: 36px;
+        transform: translateY(-50%);
+      }
+
+      .map-node--left::after {
+        top: 50%;
+        left: 100%;
+      }
+
+      .flow-panel {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1px;
+        border: 1px solid var(--divider);
+        background: var(--divider);
+      }
+
+      .flow-column {
+        min-height: 440px;
+        padding: 46px;
+        background: var(--paper);
+      }
+
+      .flow-column--dark {
+        background: var(--foreground);
+        color: var(--paper);
+      }
+
+      .flow-heading {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 42px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .flow-column--dark .flow-heading {
+        color: rgba(255, 255, 255, 0.62);
+      }
+
+      .flow-divider {
+        width: 24px;
+        height: 1px;
+        background: currentColor;
+        opacity: 0.38;
+      }
+
+      .flow-list {
+        display: grid;
+        gap: 22px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .flow-list li {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+
+      .flow-number {
+        width: 28px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .flow-column--dark .flow-number {
+        color: rgba(255, 255, 255, 0.52);
+      }
+
+      .flow-step {
+        font-size: 31px;
+        font-weight: 330;
+        line-height: 1.1;
+      }
+
+      .flow-line {
+        flex: 1;
+        height: 1px;
+        background: var(--divider);
+      }
+
+      .flow-column--dark .flow-line {
+        background: rgba(255, 255, 255, 0.22);
+      }
+
+      .flow-copy {
+        max-width: 410px;
+        margin: 52px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 360;
+        line-height: 1.58;
+      }
+
+      .flow-column--dark .flow-copy {
+        color: rgba(255, 255, 255, 0.62);
+      }
+
+      .data-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1px;
+        margin-top: 42px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.16);
+      }
+
+      .data-item {
+        min-height: 104px;
+        padding: 24px;
+        background: var(--foreground);
+      }
+
+      .data-key {
+        margin-bottom: 8px;
+        color: rgba(255, 255, 255, 0.52);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .data-value {
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .program-list {
+        margin: 0;
+        padding: 0;
+        border-top: 1px solid var(--divider);
+        list-style: none;
+      }
+
+      .program-list li {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        min-height: 88px;
+        border-bottom: 1px solid var(--divider);
+      }
+
+      .program-number {
+        width: 42px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .program-text {
+        flex: 1;
+        font-size: 29px;
+        font-weight: 330;
+        line-height: 1.18;
+      }
+
+      .program-accent {
+        width: 28px;
+        height: 1px;
+        background: var(--divider);
+        transition: width 260ms ease, background 260ms ease;
+      }
+
+      .program-list li:hover .program-accent {
+        width: 70px;
+        background: var(--accent);
+      }
+
+      .steps {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 36px;
+      }
+
+      .steps::before {
+        content: "";
+        position: absolute;
+        top: 23px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: var(--divider);
+      }
+
+      .step {
+        position: relative;
+        padding-right: 10px;
+      }
+
+      .step-index {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        margin-bottom: 32px;
+        border-radius: 999px;
+        background: var(--foreground);
+        color: var(--paper);
+        font-size: 14px;
+        font-weight: 780;
+      }
+
+      .step-title {
+        font-size: 25px;
+      }
+
+      .closing-footer {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 26px;
+        margin-top: 90px;
+        padding-top: 34px;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .closing-footer small {
+        display: block;
+        margin-bottom: 8px;
+        color: rgba(255, 255, 255, 0.52);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .closing-footer strong {
+        font-size: 20px;
+      }
+
+      .footer-mark {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: rgba(255, 255, 255, 0.52);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 760ms cubic-bezier(0.22, 1, 0.36, 1), transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .delay-1 {
+        transition-delay: 90ms;
+      }
+
+      .delay-2 {
+        transition-delay: 180ms;
+      }
+
+      .delay-3 {
+        transition-delay: 270ms;
+      }
+
+      .delay-4 {
+        transition-delay: 360ms;
+      }
+
+      @media (max-width: 1180px) {
+        .slide {
+          padding-right: 64px;
+          padding-left: 64px;
+        }
+
+        .side-nav {
+          display: none;
+        }
+
+        .headline-xl {
+          font-size: 72px;
+        }
+
+        .headline {
+          font-size: 50px;
+        }
+
+        .grid--hero,
+        .grid--split {
+          grid-template-columns: 1fr;
+        }
+
+        .marketplace-map {
+          min-height: 460px;
+        }
+
+        .grid--four {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 820px) {
+        .topbar {
+          min-height: 64px;
+          padding: 16px 20px;
+        }
+
+        .progress {
+          top: 64px;
+        }
+
+        .brand__context,
+        .meta__year,
+        .meta__divider {
+          display: none;
+        }
+
+        .slide {
+          align-items: flex-start;
+          min-height: auto;
+          padding: 94px 20px 62px;
+        }
+
+        .slide:first-of-type {
+          min-height: 100svh;
+        }
+
+        .grid {
+          gap: 36px;
+        }
+
+        .grid--two,
+        .grid--three,
+        .grid--four,
+        .flow-panel,
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        .headline-xl {
+          font-size: 50px;
+          line-height: 1.02;
+        }
+
+        .headline {
+          font-size: 39px;
+          line-height: 1.08;
+        }
+
+        .sub-text {
+          font-size: 18px;
+        }
+
+        .lead-block {
+          gap: 16px;
+          margin-top: 34px;
+        }
+
+        .tile,
+        .flow-column {
+          min-height: auto;
+          padding: 28px;
+        }
+
+        .stat-value {
+          margin-top: 50px;
+          font-size: 52px;
+        }
+
+        .program-list li {
+          gap: 18px;
+          min-height: 78px;
+        }
+
+        .program-text {
+          font-size: 22px;
+        }
+
+        .program-accent {
+          display: none;
+        }
+
+        .steps::before {
+          display: none;
+        }
+
+        .step {
+          padding: 0 0 26px;
+          border-bottom: 1px solid var(--divider);
+        }
+
+        .step:last-child {
+          padding-bottom: 0;
+          border-bottom: 0;
+        }
+
+        .step-index {
+          margin-bottom: 20px;
+        }
+
+        .closing-footer {
+          align-items: flex-start;
+          flex-direction: column;
+          margin-top: 62px;
+        }
+
+        .marketplace-map {
+          min-height: 500px;
+          padding: 20px;
+        }
+
+        .map-center {
+          width: 128px;
+          height: 128px;
+        }
+
+        .map-node {
+          min-width: 104px;
+          font-size: 12px;
+        }
+
+        .map-node--left {
+          left: 12px;
+        }
+
+        .map-node--right {
+          right: 12px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .headline-xl {
+          font-size: 43px;
+        }
+
+        .headline {
+          font-size: 34px;
+        }
+
+        .data-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .marketplace-map {
+          min-height: 430px;
+        }
+
+        .map-center {
+          width: 112px;
+          height: 112px;
+        }
+
+        .map-center strong {
+          font-size: 28px;
+        }
+
+        .map-node {
+          min-height: 44px;
+          padding: 10px 12px;
+        }
+
+        .map-node::after {
+          width: 50px;
+        }
+
+        .map-node--top {
+          top: 30px;
+        }
+
+        .map-node--bottom {
+          bottom: 30px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+        }
+
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      /* Visual match pass: tuned to the supplied deck screenshots. */
+      :root {
+        --background: #ffffff;
+        --foreground: #111111;
+        --panel: #ffffff;
+        --paper: #ffffff;
+        --muted: #7d7d7d;
+        --muted-strong: #2a2a2a;
+        --divider: #e0e0e0;
+        --accent: #BEFF00;
+        --ambient-y: 0px;
+        --grain-y: 0px;
+        --field-x: 0px;
+        --field-y: 0px;
+        --speed-shift: 0px;
+        --speed-shift-inverse: 0px;
+      }
+
+      body {
+        background: #ffffff;
+        font-family: Inter, "Helvetica Neue", Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .topbar {
+        min-height: 86px;
+        padding: 0 56px;
+        border-top: 1px solid rgba(0, 0, 0, 0.12);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(18px);
+      }
+
+      .progress {
+        display: none;
+      }
+
+      .topbar-left,
+      .brand,
+      .meta {
+        gap: 15px;
+      }
+
+      .topbar-left {
+        gap: 18px;
+      }
+
+      .lang-toggle:hover {
+        border-color: rgba(17, 17, 17, 0.38);
+      }
+
+      .brand__dot,
+      .accent-dot {
+        width: 8px;
+        height: 8px;
+      }
+
+      .brand__name {
+        font-size: 16px;
+        font-weight: 720;
+      }
+
+      .brand__context,
+      .meta {
+        color: #777777;
+        font-size: 12px;
+        font-weight: 680;
+        letter-spacing: 0.34em;
+      }
+
+      .meta {
+        gap: 28px;
+      }
+
+      .meta__divider {
+        height: 18px;
+        background: #dedede;
+      }
+
+      .side-nav {
+        right: 48px;
+        width: 220px;
+      }
+
+      .side-nav ul {
+        align-items: flex-end;
+        gap: 15px;
+      }
+
+      .side-nav a {
+        min-height: 17px;
+        gap: 16px;
+        color: #777777;
+        font-size: 12px;
+        font-weight: 720;
+        letter-spacing: 0.32em;
+      }
+
+      .side-nav span:first-child {
+        letter-spacing: 0.28em;
+      }
+
+      .side-nav span:last-child {
+        width: 20px;
+        background: #e5e5e5;
+      }
+
+      .side-nav a.is-active {
+        color: #111111;
+      }
+
+      .side-nav a.is-active span:last-child {
+        width: 38px;
+        background: #111111;
+      }
+
+      .is-dark-slide .side-nav a {
+        color: rgba(255, 255, 255, 0.46);
+      }
+
+      .is-dark-slide .side-nav span:last-child {
+        background: rgba(255, 255, 255, 0.56);
+      }
+
+      .is-dark-slide .side-nav a.is-active {
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .is-dark-slide .side-nav a.is-active span:last-child {
+        background: rgba(255, 255, 255, 0.86);
+      }
+
+      .slide {
+        min-height: 100vh;
+        padding: 150px 0 90px;
+        border-top: 0;
+        background: #ffffff;
+        scroll-margin-top: 86px;
+      }
+
+      .slide--soft {
+        background: #ffffff;
+      }
+
+      .slide--dark {
+        background: #111111;
+      }
+
+      .slide--grid::before {
+        opacity: 1;
+        background-image:
+          linear-gradient(to right, rgba(17, 17, 17, 0.045) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(17, 17, 17, 0.045) 1px, transparent 1px);
+        background-size: 96px 96px;
+      }
+
+      .slide--dark::before {
+        opacity: 1;
+        background-image:
+          linear-gradient(to right, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+        background-size: 96px 96px;
+      }
+
+      .ambient-layer {
+        position: fixed;
+        inset: 0;
+        z-index: 2;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .ambient-tint,
+      .ambient-grain,
+      .field-motifs {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .ambient-tint {
+        inset: -14%;
+        background:
+          radial-gradient(circle at 18% 22%, rgba(190, 255, 0, 0.055), transparent 28%),
+          radial-gradient(circle at 86% 74%, rgba(190, 255, 0, 0.035), transparent 30%),
+          linear-gradient(120deg, rgba(190, 255, 0, 0.018), transparent 42%, rgba(17, 17, 17, 0.018));
+        mix-blend-mode: multiply;
+        opacity: 0.72;
+        transform: translate3d(0, var(--ambient-y), 0);
+        will-change: transform;
+      }
+
+      .ambient-grain {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.48'/%3E%3C/svg%3E");
+        background-size: 180px 180px;
+        mix-blend-mode: multiply;
+        opacity: 0.026;
+        transform: translate3d(0, var(--grain-y), 0);
+        will-change: transform;
+      }
+
+      .field-motifs {
+        inset: -9% -7%;
+        color: #111111;
+        opacity: 0.12;
+        transform: translate3d(var(--field-x), var(--field-y), 0);
+        will-change: transform;
+      }
+
+      .field-motifs svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .field-motifs line,
+      .field-motifs rect,
+      .field-motifs circle,
+      .field-motifs path {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 0.8;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .is-dark-slide .ambient-tint {
+        background:
+          radial-gradient(circle at 18% 22%, rgba(190, 255, 0, 0.075), transparent 30%),
+          radial-gradient(circle at 82% 64%, rgba(190, 255, 0, 0.045), transparent 32%),
+          linear-gradient(120deg, transparent 20%, rgba(190, 255, 0, 0.025), transparent 64%);
+        mix-blend-mode: screen;
+        opacity: 0.46;
+      }
+
+      .is-dark-slide .ambient-grain {
+        mix-blend-mode: screen;
+        opacity: 0.035;
+        filter: invert(1);
+      }
+
+      .is-dark-slide .field-motifs {
+        color: #ffffff;
+        opacity: 0.09;
+      }
+
+      .slide .container {
+        z-index: 3;
+      }
+
+      .flow-column--dark,
+      .tile--dark {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .flow-column--dark > *,
+      .tile--dark > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .flow-column--dark::before,
+      .tile--dark::before {
+        content: "";
+        position: absolute;
+        inset: -28%;
+        z-index: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          118deg,
+          transparent 0 42px,
+          rgba(255, 255, 255, 0.08) 43px 44px,
+          transparent 45px 92px
+        );
+        opacity: 0.15;
+        transform: translate3d(var(--speed-shift), 0, 0);
+        will-change: transform;
+      }
+
+      .slide--dark .container::before {
+        content: "";
+        position: absolute;
+        inset: -120px -180px;
+        z-index: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          116deg,
+          transparent 0 56px,
+          rgba(255, 255, 255, 0.07) 57px 58px,
+          transparent 59px 126px
+        );
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 16%, #000 82%, transparent);
+        mask-image: linear-gradient(90deg, transparent, #000 16%, #000 82%, transparent);
+        opacity: 0.11;
+        transform: translate3d(var(--speed-shift-inverse), 0, 0);
+        will-change: transform;
+      }
+
+      .slide--dark .container > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      #solution::after,
+      #closing::after {
+        content: "";
+        position: absolute;
+        inset: -26% -54%;
+        z-index: 1;
+        pointer-events: none;
+        background: linear-gradient(
+          104deg,
+          transparent 0 42%,
+          rgba(190, 255, 0, 0.16) 48%,
+          rgba(190, 255, 0, 0.055) 52%,
+          transparent 60% 100%
+        );
+        mix-blend-mode: screen;
+        opacity: 0.32;
+        transform: translateX(-62%) skewX(-14deg);
+        animation: accent-sweep 19s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+      }
+
+      #closing::after {
+        animation-delay: -8s;
+        opacity: 0.26;
+      }
+
+      @keyframes accent-sweep {
+        0%,
+        42% {
+          transform: translateX(-62%) skewX(-14deg);
+        }
+
+        74%,
+        100% {
+          transform: translateX(62%) skewX(-14deg);
+        }
+      }
+
+      .container {
+        width: min(1532px, calc(100% - 516px));
+        max-width: none;
+      }
+
+      .grid {
+        gap: 64px;
+      }
+
+      .grid--split {
+        grid-template-columns: minmax(0, 700px) minmax(0, 742px);
+        justify-content: space-between;
+        align-items: center;
+        gap: 90px;
+      }
+
+      #market .grid--split,
+      #opportunity .grid--split,
+      #cases .grid--split,
+      #infrastructure .grid--split {
+        align-items: end;
+        margin-bottom: 84px !important;
+      }
+
+      .section-label {
+        gap: 11px;
+        margin-bottom: 62px;
+        color: #777777;
+        font-size: 12px;
+        font-weight: 760;
+        letter-spacing: 0.34em;
+      }
+
+      .section-label::before {
+        width: 30px;
+        background: currentColor;
+      }
+
+      .slide--dark .section-label,
+      .slide--dark .muted,
+      .slide--dark .sub-text {
+        color: rgba(255, 255, 255, 0.68);
+      }
+
+      .headline-xl {
+        font-size: 112px;
+        font-weight: 680;
+        line-height: 0.98;
+      }
+
+      .headline {
+        font-size: 68px;
+        font-weight: 670;
+        line-height: 1.02;
+      }
+
+      .italic {
+        font-family: inherit;
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .muted {
+        color: #686868;
+      }
+
+      .sub-text {
+        color: #777777;
+        font-size: 24px;
+        font-weight: 360;
+        line-height: 1.38;
+      }
+
+      .lead-block {
+        gap: 30px;
+        max-width: 760px;
+        margin-top: 58px;
+      }
+
+      .accent-bar {
+        width: 48px;
+        height: 2px;
+        margin-top: 16px;
+      }
+
+      .divider-top {
+        margin-top: 30px;
+        padding-top: 28px;
+      }
+
+      .callout {
+        gap: 16px;
+        font-size: 16px;
+        font-weight: 720;
+      }
+
+      .insight-stack {
+        display: grid;
+        gap: 22px;
+      }
+
+      .impact-box {
+        margin-top: 8px;
+        padding: 28px 0 0;
+        border-top: 1px solid var(--divider);
+      }
+
+      .impact-label,
+      .case-type,
+      .case-metric {
+        color: #777777;
+        font-size: 12px;
+        font-weight: 760;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+      }
+
+      .impact-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px 28px;
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .impact-list li {
+        position: relative;
+        padding-left: 17px;
+        color: #303030;
+        font-size: 16px;
+        font-weight: 520;
+        line-height: 1.45;
+      }
+
+      .impact-list li::before {
+        content: "";
+        position: absolute;
+        top: 0.66em;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      #fan-economy .callout {
+        align-items: flex-start;
+        line-height: 1.45;
+      }
+
+      #fan-economy .callout .accent-dot {
+        margin-top: 0.55em;
+      }
+
+      #cover {
+        padding-top: 150px;
+      }
+
+      #cover .container {
+        transform: translateY(24px);
+      }
+
+      .cover-layout {
+        display: block;
+      }
+
+      #cover .section-label {
+        margin-bottom: 70px;
+      }
+
+      #cover .headline-xl {
+        max-width: 1200px;
+        font-size: 116px;
+      }
+
+      .cover-lead {
+        max-width: 780px;
+        margin-top: 62px;
+      }
+
+      .cover-lead .accent-bar {
+        margin-top: 38px;
+      }
+
+      .eyebrow-row {
+        gap: 10px;
+        margin: 0 0 8px;
+        color: #777777;
+        font-size: 12px;
+        font-weight: 760;
+        letter-spacing: 0.34em;
+      }
+
+      .cover-scroll {
+        position: absolute;
+        right: 120px;
+        bottom: 32%;
+        color: #777777;
+        font-size: 12px;
+        font-weight: 760;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+      }
+
+      .marketplace-map {
+        display: none;
+      }
+
+      .tile-grid {
+        gap: 0;
+        border-color: #dedede;
+        background: #dedede;
+      }
+
+      .tile {
+        position: relative;
+        min-height: 336px;
+        padding: 50px 48px;
+        background: #ffffff;
+      }
+
+      #market .tile {
+        min-height: 390px;
+      }
+
+      #market .tile::after,
+      #infrastructure .tile::after {
+        content: "";
+        position: absolute;
+        top: 56px;
+        right: 48px;
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      #infrastructure .tile::after {
+        background: #dedede;
+      }
+
+      .tile--dark {
+        background: #111111;
+        color: #ffffff;
+      }
+
+      .tile--dark .tile-kicker,
+      .tile--dark .stat-detail {
+        color: rgba(255, 255, 255, 0.58);
+      }
+
+      .tile--hover:hover {
+        transform: none;
+      }
+
+      .tile-kicker {
+        color: #777777;
+        font-size: 12px;
+        font-weight: 680;
+        letter-spacing: 0.28em;
+      }
+
+      .stat-value {
+        margin-top: 74px;
+        font-size: 84px;
+        font-weight: 560;
+        letter-spacing: 0;
+      }
+
+      .stat-label {
+        margin-top: 28px;
+        font-size: 18px;
+        font-weight: 720;
+      }
+
+      .stat-detail {
+        margin-top: 24px;
+        color: #858585;
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      .benefit-card {
+        min-height: 336px;
+      }
+
+      .benefit-title,
+      .capability-title,
+      .step-title,
+      .case-title {
+        font-size: 24px;
+        font-weight: 720;
+      }
+
+      .benefit-copy,
+      .capability-copy,
+      .step-copy,
+      .case-copy {
+        color: #808080;
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      .case-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 360px;
+      }
+
+      .case-logo {
+        width: 54px;
+        height: 54px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 58px;
+        border: 1px solid #dedede;
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(190, 255, 0, 0.55), rgba(255, 255, 255, 0));
+        color: #111111;
+        font-size: 14px;
+        font-weight: 780;
+      }
+
+      .case-title {
+        margin: auto 0 0;
+      }
+
+      .case-copy {
+        margin-top: 18px;
+      }
+
+      .case-metric {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 30px;
+        color: #111111;
+      }
+
+      .case-metric::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      .capability-card {
+        min-height: 264px;
+        padding: 42px 40px;
+      }
+
+      .capability-title {
+        margin-top: 56px;
+      }
+
+      .flow-panel {
+        gap: 0;
+        border-color: #dedede;
+        background: #dedede;
+      }
+
+      .flow-column {
+        min-height: 566px;
+        padding: 70px 68px;
+      }
+
+      .flow-column--dark {
+        background: #111111;
+      }
+
+      .flow-heading {
+        gap: 16px;
+        margin-bottom: 54px;
+        font-size: 12px;
+        font-weight: 720;
+        letter-spacing: 0.34em;
+      }
+
+      .flow-divider {
+        width: 28px;
+      }
+
+      .flow-list {
+        gap: 34px;
+      }
+
+      .flow-list li {
+        gap: 26px;
+      }
+
+      .flow-number {
+        width: 32px;
+        color: #808080;
+        font-size: 13px;
+      }
+
+      .flow-step {
+        font-size: 36px;
+        font-weight: 360;
+      }
+
+      .flow-copy {
+        max-width: 430px;
+        margin-top: 58px;
+        color: #858585;
+        font-size: 16px;
+        line-height: 1.45;
+      }
+
+      .flow-column--dark .flow-copy {
+        color: rgba(255, 255, 255, 0.48);
+      }
+
+      .data-grid {
+        width: 742px;
+        max-width: 100%;
+        gap: 0;
+        margin-top: 50px;
+        border-color: rgba(255, 255, 255, 0.28);
+        background: rgba(255, 255, 255, 0.22);
+      }
+
+      .data-item {
+        min-height: 112px;
+        padding: 30px;
+        background: #111111;
+      }
+
+      .data-key {
+        margin-bottom: 16px;
+        color: rgba(255, 255, 255, 0.48);
+        font-size: 12px;
+        letter-spacing: 0.34em;
+      }
+
+      .data-value {
+        font-size: 16px;
+        font-weight: 720;
+      }
+
+      #program .grid--split {
+        grid-template-columns: minmax(0, 560px) minmax(0, 874px);
+        align-items: center;
+        gap: 98px;
+      }
+
+      #program .sub-text {
+        margin-top: 42px !important;
+      }
+
+      .program-list li {
+        gap: 68px;
+        min-height: 112px;
+      }
+
+      .program-number {
+        width: 42px;
+        color: #777777;
+        font-size: 12px;
+        letter-spacing: 0.24em;
+      }
+
+      .program-text {
+        font-size: 35px;
+        font-weight: 360;
+      }
+
+      .steps {
+        gap: 72px;
+      }
+
+      .steps::before {
+        top: 24px;
+        background: #dddddd;
+      }
+
+      .step-index {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 42px;
+        font-size: 15px;
+      }
+
+      .step-index::after {
+        content: "";
+        position: absolute;
+        left: 64px;
+        top: 50%;
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: var(--accent);
+        transform: translateY(-50%);
+      }
+
+      .step:last-child .step-index::after {
+        display: none;
+      }
+
+      .step-title {
+        font-size: 27px;
+      }
+
+      .closing-footer {
+        margin-top: 110px;
+        padding-top: 48px;
+        border-top-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .closing-footer small,
+      .footer-mark {
+        color: rgba(255, 255, 255, 0.48);
+        font-size: 12px;
+        letter-spacing: 0.34em;
+      }
+
+      .closing-footer strong {
+        font-size: 20px;
+      }
+
+      #closing .sub-text {
+        font-size: 28px;
+        line-height: 1.34;
+      }
+
+      @media (max-width: 1400px) {
+        .container {
+          width: calc(100% - 180px);
+        }
+
+        .headline-xl,
+        #cover .headline-xl {
+          font-size: 88px;
+        }
+
+        .headline {
+          font-size: 56px;
+        }
+
+        .grid--split,
+        #program .grid--split {
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        }
+
+      }
+
+      @media (max-width: 1180px) {
+        .container {
+          width: calc(100% - 128px);
+        }
+
+        .slide {
+          padding: 128px 0 80px;
+        }
+
+        .grid--split,
+        #program .grid--split {
+          grid-template-columns: 1fr;
+          gap: 52px;
+        }
+      }
+
+      @media (max-width: 820px) {
+        .topbar {
+          min-height: 64px;
+          padding: 0 20px;
+        }
+
+        .container {
+          width: calc(100% - 40px);
+        }
+
+        .slide {
+          min-height: auto;
+          padding: 96px 0 62px;
+        }
+
+        #cover {
+          min-height: 100vh;
+          padding-top: 96px;
+        }
+
+        #cover .container {
+          transform: none;
+        }
+
+        .headline-xl,
+        #cover .headline-xl {
+          font-size: 50px;
+        }
+
+        .headline {
+          font-size: 38px;
+        }
+
+        .sub-text {
+          font-size: 18px;
+        }
+
+        .section-label {
+          margin-bottom: 34px;
+          font-size: 10px;
+        }
+
+        .cover-scroll {
+          display: none;
+        }
+
+        .tile {
+          padding: 30px;
+        }
+
+        #market .tile,
+        .benefit-card,
+        .capability-card,
+        .flow-column {
+          min-height: auto;
+        }
+
+        .flow-column {
+          padding: 34px 30px;
+        }
+
+        .program-list li {
+          gap: 18px;
+          min-height: 82px;
+        }
+
+        .program-text {
+          font-size: 23px;
+        }
+
+        .impact-list {
+          grid-template-columns: 1fr;
+        }
+
+        .case-card {
+          min-height: auto;
+        }
+
+        .case-logo {
+          margin-bottom: 42px;
+        }
+
+        .steps {
+          gap: 0;
+        }
+
+        .step-index::after {
+          display: none;
+        }
+
+        .field-motifs {
+          inset: -6% -26%;
+          opacity: 0.085;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .ambient-tint,
+        .ambient-grain,
+        .field-motifs,
+        .flow-column--dark::before,
+        .tile--dark::before,
+        .slide--dark .container::before,
+        #solution::after,
+        #closing::after {
+          animation: none;
+          transform: none;
+        }
+      }
+
+      @media print {
+        .topbar,
+        .progress,
+        .side-nav,
+        .ambient-layer,
+        #solution::after,
+        #closing::after {
+          display: none;
+        }
+
+        body {
+          background: white;
+        }
+
+        .slide {
+          min-height: 100vh;
+          page-break-after: always;
+          padding: 42px;
+        }
+
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="ambient-layer" data-ambient aria-hidden="true">
+      <div class="ambient-tint"></div>
+      <div class="ambient-grain"></div>
+      <div class="field-motifs">
+        <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <rect x="80" y="72" width="1440" height="756" rx="0"></rect>
+          <line x1="800" y1="72" x2="800" y2="828"></line>
+          <circle cx="800" cy="450" r="132"></circle>
+          <circle cx="800" cy="450" r="3"></circle>
+          <rect x="80" y="266" width="225" height="368"></rect>
+          <rect x="80" y="356" width="82" height="188"></rect>
+          <rect x="1295" y="266" width="225" height="368"></rect>
+          <rect x="1438" y="356" width="82" height="188"></rect>
+          <path d="M80 142 A70 70 0 0 0 150 72"></path>
+          <path d="M1520 142 A70 70 0 0 1 1450 72"></path>
+          <path d="M80 758 A70 70 0 0 1 150 828"></path>
+          <path d="M1520 758 A70 70 0 0 0 1450 828"></path>
+          <path d="M305 348 A124 124 0 0 1 305 552"></path>
+          <path d="M1295 348 A124 124 0 0 0 1295 552"></path>
+        </svg>
+      </div>
+    </div>
+
+    <header class="topbar" aria-label="Presentation header">
+      <div class="topbar-left">
+        <button class="lang-toggle" type="button" data-lang-toggle aria-label="Switch to Spanish">ES</button>
+        <a class="brand" href="#cover" aria-label="Drelife cover">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span class="brand__name">Drelife</span>
+          <span class="brand__context" data-en="&middot; Business Proposal" data-es="&middot; Propuesta comercial">&middot; Business Proposal</span>
+        </a>
+      </div>
+      <div class="meta" aria-label="Deck metadata">
+        <span class="meta__year" data-en="2026 Deck" data-es="Deck 2026">2026 Deck</span>
+        <span class="meta__divider" aria-hidden="true"></span>
+        <span data-en="Confidential" data-es="Confidencial">Confidential</span>
+      </div>
+    </header>
+
+    <div class="progress" aria-hidden="true">
+      <div class="progress__bar" data-progress-bar></div>
+    </div>
+
+    <nav class="side-nav" aria-label="Presentation sections">
+      <ul>
+        <li><a href="#cover" data-section-link><span data-en="01 &mdash; Cover" data-es="01 &mdash; Inicio">01 &mdash; Cover</span><span></span></a></li>
+        <li><a href="#fan-economy" data-section-link><span data-en="02 &mdash; Secondary Market" data-es="02 &mdash; Mercado secundario">02 &mdash; Secondary Market</span><span></span></a></li>
+        <li><a href="#market" data-section-link><span data-en="03 &mdash; Market" data-es="03 &mdash; Mercado">03 &mdash; Market</span><span></span></a></li>
+        <li><a href="#shift" data-section-link><span data-en="04 &mdash; The Shift" data-es="04 &mdash; El Cambio">04 &mdash; The Shift</span><span></span></a></li>
+        <li><a href="#opportunity" data-section-link><span data-en="05 &mdash; Opportunity" data-es="05 &mdash; Oportunidad">05 &mdash; Opportunity</span><span></span></a></li>
+        <li><a href="#solution" data-section-link><span data-en="06 &mdash; Solution" data-es="06 &mdash; Solución">06 &mdash; Solution</span><span></span></a></li>
+        <li><a href="#cases" data-section-link><span data-en="07 &mdash; Success Cases" data-es="07 &mdash; Casos de éxito">07 &mdash; Success Cases</span><span></span></a></li>
+        <li><a href="#program" data-section-link><span data-en="08 &mdash; Program" data-es="08 &mdash; Programa">08 &mdash; Program</span><span></span></a></li>
+        <li><a href="#infrastructure" data-section-link><span data-en="09 &mdash; Infrastructure" data-es="09 &mdash; Infraestructura">09 &mdash; Infrastructure</span><span></span></a></li>
+        <li><a href="#operating" data-section-link><span data-en="10 &mdash; Operating Model" data-es="10 &mdash; Modelo Operativo">10 &mdash; Operating Model</span><span></span></a></li>
+        <li><a href="#closing" data-section-link><span data-en="11 &mdash; Closing" data-es="11 &mdash; Cierre">11 &mdash; Closing</span><span></span></a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="cover" class="slide slide--grid" data-title="Cover">
+        <div class="container cover-layout">
+          <div>
+            <div class="section-label reveal" data-en="01 &mdash; Cover" data-es="01 &mdash; Inicio">01 &mdash; Cover</div>
+            <h1 class="headline-xl reveal delay-1">
+              <span data-en="A new business model" data-es="Un nuevo modelo de negocio">A new business model</span><br />
+              <span class="italic" data-en="for a new generation of fans" data-es="para una nueva generación de fans">for a new generation of fans</span>
+              <span data-en="" data-es=""></span>
+            </h1>
+            <div class="lead-block cover-lead reveal delay-2">
+              <span class="accent-bar" aria-hidden="true"></span>
+              <div>
+                <div class="eyebrow-row">
+                  <span class="accent-dot" aria-hidden="true"></span>
+                </div>
+                <p class="sub-text" data-en="Activate resale as a new business vertical and access a market that already exists: generate revenue, access strategic data, and build a longer-lasting relationship with your fans." data-es="Activa la reventa como una nueva vertical de negocio y accede a un mercado que ya existe: genera ingresos, accede a datos estratégicos y construye una relación más duradera con tus fans.">Activate resale as a new business vertical and access a market that already exists: generate revenue, access strategic data, and build a longer-lasting relationship with your fans.</p>
+              </div>
+            </div>
+          </div>
+          <div class="cover-scroll reveal delay-3" data-en="Scroll &darr;" data-es="Desplaza &darr;">Scroll &darr;</div>
+        </div>
+      </section>
+
+      <section id="fan-economy" class="slide" data-title="Fan Economy">
+        <div class="container grid grid--split">
+          <div>
+            <div class="section-label reveal" data-en="02 &mdash; Secondary Market" data-es="02 &mdash; Mercado secundario">02 &mdash; Secondary Market</div>
+            <h2 class="headline reveal delay-1">
+              <span data-en="The secondary market" data-es="El mercado secundario">The secondary market</span><br />
+              <span class="italic muted" data-en="in sports is already here." data-es="en el deporte ya es un hecho.">in sports is already here.</span>
+            </h2>
+          </div>
+
+          <div class="insight-stack">
+            <p class="sub-text reveal delay-2" data-en="The secondary market in sports is growing structurally: fans buy, resell, trade, and search for exclusive, limited-edition, or discontinued pieces." data-es="El mercado secundario en el deporte crece de forma estructural; los fans compran, revenden, intercambian y buscan piezas exlusivas, limitadas o descatalogadas.">The secondary market in sports is growing structurally: fans buy, resell, trade, and search for exclusive, limited-edition, or discontinued pieces.</p>
+            <p class="sub-text reveal delay-3" style="margin-top: 4px" data-en="In jerseys, scarves, and official merchandise, emotion, nostalgia, and club identity increase value over time." data-es="En camisetas, bufandas y merchandising oficial, el componente emocional, la nostalgia y la identidad de club elevan el valor con el tiempo.">In jerseys, scarves, and official merchandise, emotion, nostalgia, and club identity increase value over time.</p>
+
+            <div class="impact-box reveal delay-4">
+              <div class="impact-label" data-en="Outside the club" data-es="Fuera del club">Outside the club</div>
+              <ul class="impact-list">
+                <li data-en="Revenue from these transactions does not return to the club" data-es="Los ingresos derivados de estas transacciones no retornan al club">Revenue from these transactions does not return to the club</li>
+                <li data-en="The club loses visibility into real market prices" data-es="El club pierde visibilidad sobre precios reales de mercado">The club loses visibility into real market prices</li>
+                <li data-en="Brand experience control is diluted" data-es="Se diluye el control sobre la experiencia de marca">Brand experience control is diluted</li>
+                <li data-en="Key insight into fan behavior is not captured" data-es="No se captura información clave sobre el comportamiento del fan">Key insight into fan behavior is not captured</li>
+              </ul>
+            </div>
+            <div class="divider-top callout reveal delay-4">
+              <span class="accent-dot" aria-hidden="true"></span>
+              <span data-en="The opportunity already exists: transactions, engagement, and data currently happen outside the club ecosystem." data-es="La oportunidad ya existe: transacciones, vinculación y datos que hoy ocurren fuera del ecosistema del club.">The opportunity already exists: transactions, engagement, and data currently happen outside the club ecosystem.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="market" class="slide slide--soft" data-title="Market">
+        <div class="container">
+          <div class="grid grid--split" style="margin-bottom: 56px">
+            <div>
+              <div class="section-label reveal" data-en="03 &mdash; Market Validation" data-es="03 &mdash; Validación de mercado">03 &mdash; Market Validation</div>
+              <h2 class="headline reveal delay-1">
+                <span data-en="The numbers" data-es="Los números">The numbers</span><br />
+                <span class="italic" data-en="are already here." data-es="ya están aquí.">are already here.</span>
+              </h2>
+            </div>
+            <p class="sub-text reveal delay-2" data-en="Resale has stopped being a trend and has become a key pillar of commerce and the way consumers relate to brands." data-es="La reventa ha dejado de ser una tendencia para convertirse en un pilar clave del comercio y en la forma en la que los consumidores se relacionan con las marcas.">Resale has stopped being a trend and has become a key pillar of commerce and the way consumers relate to brands.</p>
+          </div>
+
+          <div class="tile-grid grid--three">
+            <article class="tile tile--hover reveal delay-1">
+              <div class="tile-kicker">01</div>
+              <div class="stat-value">$393B</div>
+              <div class="stat-label" data-en="Global resale market by 2030" data-es="Mercado global de reventa en 2030">Global resale market by 2030</div>
+              <p class="stat-detail" data-en="Second-hand commerce is expected to nearly double, outpacing traditional retail growth." data-es="Se prevé que el comercio de segunda mano casi se duplique, superando el crecimiento del comercio tradicional.">Second-hand commerce is expected to nearly double, outpacing traditional retail growth.</p>
+            </article>
+
+            <article class="tile tile--hover reveal delay-2">
+              <div class="tile-kicker">02</div>
+              <div class="stat-value">60%+</div>
+              <div class="stat-label" data-en="Of second-hand buyers are Gen Z and Millennials" data-es="De los compradores de segunda mano son Gen Z y Millennials">Of second-hand buyers are Gen Z and Millennials</div>
+              <p class="stat-detail" data-en="The core sports fan demographic is the same one driving resale adoption." data-es="La demografía principal del fan deportivo es la misma que está impulsando la adopción de la reventa.">The core sports fan demographic is the same one driving resale adoption.</p>
+            </article>
+
+            <article class="tile tile--dark reveal delay-3">
+              <div class="tile-kicker">03</div>
+              <div class="stat-value">2030</div>
+              <div class="stat-label" data-en="EU regulation on the product lifecycle" data-es="Regulación UE sobre ciclo de vida del producto">EU regulation on the product lifecycle</div>
+              <p class="stat-detail" data-en="Brands will be responsible for the full lifecycle: take-back, reuse, and recycling." data-es="Las marcas serán responsables de todo el ciclo de vida: recogida, reutilización y reciclaje.">Brands will be responsible for the full lifecycle: take-back, reuse, and recycling.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="shift" class="slide" data-title="The Shift">
+        <div class="container">
+          <div style="max-width: 760px; margin-bottom: 70px">
+            <div class="section-label reveal" data-en="04 &mdash; From Transactions to Relationships" data-es="04 &mdash; De transacciones a relaciones">04 &mdash; From Transactions to Relationships</div>
+            <h2 class="headline reveal delay-1">
+              <span data-en="From a single sale" data-es="De una venta única">From a single sale</span><br />
+              <span class="italic" data-en="to an ongoing fan relationship." data-es="a una relación continua con el fan.">to an ongoing fan relationship.</span>
+            </h2>
+          </div>
+
+          <div class="flow-panel reveal delay-2">
+            <div class="flow-column">
+              <div class="flow-heading">
+                <span data-en="Today" data-es="Hoy">Today</span>
+                <span class="flow-divider" aria-hidden="true"></span>
+                <span data-en="Linear model" data-es="Modelo lineal">Linear model</span>
+              </div>
+              <ol class="flow-list">
+                <li>
+                  <span class="flow-number">01</span>
+                  <span class="flow-step" data-en="Produce" data-es="Producir">Produce</span>
+                  <span class="flow-line" aria-hidden="true"></span>
+                </li>
+                <li>
+                  <span class="flow-number">02</span>
+                  <span class="flow-step" data-en="Sell" data-es="Vender">Sell</span>
+                  <span class="flow-line" aria-hidden="true"></span>
+                </li>
+                <li>
+                  <span class="flow-number">03</span>
+                  <span class="flow-step" data-en="Lose control" data-es="Perder control">Lose control</span>
+                </li>
+              </ol>
+              <p class="flow-copy" data-en="Value ends the moment the product leaves the store. Everything that happens afterward happens without the club." data-es="El valor termina en el momento en que el producto sale de la tienda. Todo lo que ocurre después pasa sin el club.">Value ends the moment the product leaves the store. Everything that happens afterward happens without the club.</p>
+            </div>
+
+            <div class="flow-column flow-column--dark">
+              <div class="flow-heading">
+                <span class="accent-dot" aria-hidden="true"></span>
+                <span data-en="With Drelife" data-es="Con Drelife">With Drelife</span>
+                <span class="flow-divider" aria-hidden="true"></span>
+                <span data-en="Circular model" data-es="Modelo circular">Circular model</span>
+              </div>
+              <ol class="flow-list">
+                <li>
+                  <span class="flow-number">01</span>
+                  <span class="flow-step" data-en="Sell" data-es="Vender">Sell</span>
+                  <span class="flow-line" aria-hidden="true"></span>
+                </li>
+                <li>
+                  <span class="flow-number">02</span>
+                  <span class="flow-step" data-en="Resell" data-es="Revender">Resell</span>
+                  <span class="flow-line" aria-hidden="true"></span>
+                </li>
+                <li>
+                  <span class="flow-number">03</span>
+                  <span class="flow-step" data-en="Reactivate" data-es="Reactivar">Reactivate</span>
+                  <span class="flow-line" aria-hidden="true"></span>
+                </li>
+                <li>
+                  <span class="flow-number">04</span>
+                  <span class="flow-step" data-en="Repeat" data-es="Repetir">Repeat</span>
+                </li>
+              </ol>
+              <p class="flow-copy" data-en="Each product becomes a recurring touchpoint, generating revenue, data, and engagement every time it changes hands." data-es="Cada producto se convierte en un punto de contacto recurrente, generando ingresos, datos y vinculación cada vez que cambia de manos.">Each product becomes a recurring touchpoint, generating revenue, data, and engagement every time it changes hands.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="opportunity" class="slide" data-title="Opportunity">
+        <div class="container">
+          <div class="grid grid--split" style="margin-bottom: 56px">
+            <div>
+              <div class="section-label reveal" data-en="05 &mdash; The Opportunity" data-es="05 &mdash; La oportunidad">05 &mdash; The Opportunity</div>
+              <h2 class="headline reveal delay-1">
+                <span data-en="Four levers," data-es="Cuatro palancas,">Four levers,</span><br />
+                <span class="italic" data-en="one channel." data-es="un canal.">one channel.</span>
+              </h2>
+            </div>
+            <p class="sub-text reveal delay-2" data-en="An official resale channel unlocks value across four dimensions that accumulate over time." data-es="Un canal oficial de reventa desbloquea valor en cuatro dimensiones que se acumulan con el tiempo.">An official resale channel unlocks value across four dimensions that accumulate over time.</p>
+          </div>
+
+          <div class="tile-grid grid--four">
+            <article class="tile benefit-card reveal delay-1">
+              <span class="tile-kicker">01</span>
+              <div>
+                <h3 class="benefit-title" data-en="Engagement" data-es="Vínculo">Engagement</h3>
+                <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
+                <p class="benefit-copy" data-en="Reinforce the relationship with fans through new touchpoints across the product lifecycle." data-es="Refuerza la relación con los fans mediante nuevos puntos de contacto a lo largo del ciclo de vida del producto.">Reinforce the relationship with fans through new touchpoints across the product lifecycle.</p>
+              </div>
+            </article>
+
+            <article class="tile benefit-card reveal delay-2">
+              <span class="tile-kicker">02</span>
+              <div>
+                <h3 class="benefit-title" data-en="Revenue" data-es="Ingresos">Revenue</h3>
+                <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
+                <p class="benefit-copy" data-en="Generate additional revenue from existing products, without needing to produce new stock." data-es="Genera ingresos adicionales a partir de producto ya existente, sin necesidad de producir nuevo stock.">Generate additional revenue from existing products, without needing to produce new stock.</p>
+              </div>
+            </article>
+
+            <article class="tile benefit-card reveal delay-3">
+              <span class="tile-kicker">03</span>
+              <div>
+                <h3 class="benefit-title" data-en="Control" data-es="Control">Control</h3>
+                <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
+                <p class="benefit-copy" data-en="Maintain full control over pricing, customer experience, and the official resale channel end to end." data-es="Mantén el control total sobre precios, experiencia de cliente y el canal oficial de reventa de principio a fin.">Maintain full control over pricing, customer experience, and the official resale channel from end to end.</p>
+              </div>
+            </article>
+
+            <article class="tile benefit-card reveal delay-4">
+              <span class="tile-kicker">04</span>
+              <div>
+                <h3 class="benefit-title" data-en="Data" data-es="Datos">Data</h3>
+                <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
+                <p class="benefit-copy" data-en="Access strategic insight into fan behavior, preferences, and the product lifecycle." data-es="Accede a conocimiento estratégico sobre comportamiento fan, preferencias y ciclo de vida del producto.">Access strategic insight into fan behavior, preferences, and the product lifecycle.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide slide--dark" data-title="Solution">
+        <div class="container">
+          <div class="section-label reveal" data-en="06 &mdash; The Solution" data-es="06 &mdash; La solución">06 &mdash; The Solution</div>
+          <h2 class="headline-xl reveal delay-1">
+            <span data-en="Own Your" data-es="Haz tuyo el">Own Your</span><br />
+            <span class="italic" data-en="Fan-to-Fan" data-es="Marketplace">Fan-to-Fan</span>
+            <span data-en="Marketplace." data-es="Fan-to-Fan.">Marketplace.</span>
+          </h2>
+
+          <div class="grid grid--split" style="margin-top: 58px">
+            <div></div>
+            <div>
+              <div class="lead-block reveal delay-2" style="margin-top: 0">
+                <span class="accent-bar" aria-hidden="true"></span>
+                <p class="sub-text" data-en="Drelife enables clubs to launch and manage their own official resale channel, connecting fans directly within the club ecosystem." data-es="Drelife permite a los clubes lanzar y gestionar su propio canal oficial de reventa, conectando directamente a los fans dentro del ecosistema del club.">Drelife enables clubs to launch and manage their own official resale channel, connecting fans directly within the club ecosystem.</p>
+              </div>
+
+              <div class="data-grid reveal delay-3">
+                <div class="data-item">
+                  <div class="data-key" data-en="Channel" data-es="Canal">Channel</div>
+                  <div class="data-value" data-en="Official and branded" data-es="Oficial y con marca">Official and branded</div>
+                </div>
+                <div class="data-item">
+                  <div class="data-key" data-en="Control" data-es="Control">Control</div>
+                  <div class="data-value" data-en="Pricing &middot; Experience &middot; Data" data-es="Precios &middot; Experiencia &middot; Datos">Pricing &middot; Experience &middot; Data</div>
+                </div>
+                <div class="data-item">
+                  <div class="data-key" data-en="Audience" data-es="Audiencia">Audience</div>
+                  <div class="data-value" data-en="Existing fanbase" data-es="Base de fans existente">Existing fanbase</div>
+                </div>
+                <div class="data-item">
+                  <div class="data-key" data-en="Products" data-es="Productos">Products</div>
+                  <div class="data-value" data-en="Already in the market" data-es="Ya en el mercado">Already in the market</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cases" class="slide" data-title="Success Cases">
+        <div class="container">
+          <div class="grid grid--split" style="margin-bottom: 56px">
+            <div>
+              <div class="section-label reveal" data-en="07 &mdash; Success Cases" data-es="07 &mdash; Casos de éxito">07 &mdash; Success Cases</div>
+              <h2 class="headline reveal delay-1">
+                <span data-en="Proof across" data-es="Prueba en">Proof across</span><br />
+                <span class="italic" data-en="sport, retail, and community." data-es="deporte, retail y comunidad.">sport, retail, and community.</span>
+              </h2>
+            </div>
+            <p class="sub-text reveal delay-2" data-en="Three references that show how circular resale can generate value for clubs, venues, and sports brands without breaking the premium brand experience." data-es="Tres referencias que muestran cómo la reventa circular puede generar valor en clubes, espacios y marcas deportivas sin romper la experiencia premium de marca.">Three references that show how circular resale can generate value for clubs, venues, and sports brands without breaking the premium brand experience.</p>
+          </div>
+
+          <div class="tile-grid grid--three">
+            <article class="tile case-card reveal delay-1">
+              <div class="case-logo" aria-hidden="true">FCB</div>
+              <div class="case-type" data-en="Club ecosystem" data-es="Ecosistema club">Club ecosystem</div>
+              <h3 class="case-title">FC Barcelona</h3>
+              <p class="case-copy" data-en="A benchmark for turning highly emotional fan products into a controlled, official, and data-rich resale experience." data-es="Referencia para convertir producto fan de alto componente emocional en una experiencia de reventa controlada, oficial y rica en datos.">A benchmark for turning highly emotional fan products into a controlled, official, and data-rich resale experience.</p>
+              <div class="case-metric" data-en="Official channel" data-es="Canal oficial">Official channel</div>
+            </article>
+
+            <article class="tile case-card reveal delay-2">
+              <div class="case-logo" aria-hidden="true">V</div>
+              <div class="case-type" data-en="Venue and community" data-es="Espacio y comunidad">Venue and community</div>
+              <h3 class="case-title">Velodrom</h3>
+              <p class="case-copy" data-en="A circular layer designed around community, recurrence, and products that keep moving between active users." data-es="Una capa circular pensada alrededor de comunidad, recurrencia y productos que siguen moviéndose entre usuarios activos.">A circular layer designed around community, recurrence, and products that keep moving between active users.</p>
+              <div class="case-metric" data-en="Circular operation" data-es="Operación circular">Circular operation</div>
+            </article>
+
+            <article class="tile case-card reveal delay-3">
+              <div class="case-logo" aria-hidden="true">MS</div>
+              <div class="case-type" data-en="Sports brand" data-es="Marca deportiva">Sports brand</div>
+              <h3 class="case-title">Munich Sports</h3>
+              <p class="case-copy" data-en="A product lifecycle approach that extends value beyond the first sale, protecting positioning and customer experience." data-es="Un enfoque de ciclo de vida de producto que extiende el valor más allá de la primera venta, protegiendo posicionamiento y experiencia de cliente.">A product lifecycle approach that extends value beyond the first sale, protecting positioning and customer experience.</p>
+              <div class="case-metric" data-en="Lifecycle value" data-es="Valor de ciclo de vida">Lifecycle value</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="program" class="slide" data-title="Program">
+        <div class="container grid grid--split">
+          <div>
+            <div class="section-label reveal" data-en="08 &mdash; Resale Business Program" data-es="08 &mdash; Programa de negocio de reventa">08 &mdash; Resale Business Program</div>
+            <h2 class="headline reveal delay-1">
+              <span data-en="The value" data-es="El bucle">The value</span><br />
+              <span class="italic" data-en="loop." data-es="de valor.">loop.</span>
+            </h2>
+            <p class="sub-text reveal delay-2" style="margin-top: 32px; max-width: 470px" data-en="A program designed to reactivate the dormant value that already exists in the fanbase." data-es="Un programa diseñado para reactivar el valor dormido que ya existe en la base de fans.">A program designed to reactivate the dormant value that already exists in the fanbase.</p>
+          </div>
+
+          <ol class="program-list reveal delay-3">
+            <li>
+              <span class="program-number">01</span>
+              <span class="program-text" data-en="Reactivate fans" data-es="Reactivar fans">Reactivate fans</span>
+              <span class="program-accent" aria-hidden="true"></span>
+            </li>
+            <li>
+              <span class="program-number">02</span>
+              <span class="program-text" data-en="Recover valuable products" data-es="Recuperar productos con valor">Recover valuable products</span>
+              <span class="program-accent" aria-hidden="true"></span>
+            </li>
+            <li>
+              <span class="program-number">03</span>
+              <span class="program-text" data-en="Generate greater revenue" data-es="Generar mayores ingresos">Generate greater revenue</span>
+              <span class="program-accent" aria-hidden="true"></span>
+            </li>
+            <li>
+              <span class="program-number">04</span>
+              <span class="program-text" data-en="Control prices, channel, and experience" data-es="Controlar precios, canal y experiencia">Control prices, channel, and experience</span>
+              <span class="program-accent" aria-hidden="true"></span>
+            </li>
+            <li>
+              <span class="program-number">05</span>
+              <span class="program-text" data-en="Capture strategic data" data-es="Capturar datos estratégicos">Capture strategic data</span>
+              <span class="program-accent" aria-hidden="true"></span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="infrastructure" class="slide slide--soft" data-title="Infrastructure">
+        <div class="container">
+          <div class="grid grid--split" style="margin-bottom: 56px">
+            <div>
+              <div class="section-label reveal" data-en="09 &mdash; Circular Infrastructure" data-es="09 &mdash; Infraestructura circular">09 &mdash; Circular Infrastructure</div>
+              <h2 class="headline reveal delay-1">
+                <span data-en="The infrastructure" data-es="La infraestructura">The infrastructure</span><br />
+                <span class="italic" data-en="to operate at scale." data-es="para operar a escala.">to operate at scale.</span>
+              </h2>
+            </div>
+            <p class="sub-text reveal delay-2" data-en="Drelife provides the entire operating layer clubs need to run circular programs reliably: technology, logistics, and strategy in a single solution." data-es="Drelife proporciona toda la capa operativa que los clubes necesitan para ejecutar programas circulares con fiabilidad: tecnología, logística y estrategia en una sola solución.">Drelife provides the entire operating layer clubs need to run circular programs reliably: technology, logistics, and strategy in a single solution.</p>
+          </div>
+
+          <div class="tile-grid grid--three">
+            <article class="tile capability-card reveal delay-1">
+              <span class="tile-kicker">01</span>
+              <h3 class="capability-title" data-en="Reverse logistics" data-es="Logística inversa">Reverse logistics</h3>
+              <p class="capability-copy" data-en="Take-back, authentication, refurbishment, and warehousing." data-es="Recogida, autenticación, reacondicionamiento y almacenamiento.">Take-back, authentication, refurbishment, and warehousing.</p>
+            </article>
+
+            <article class="tile capability-card reveal delay-2">
+              <span class="tile-kicker">02</span>
+              <h3 class="capability-title" data-en="Circular strategy" data-es="Estrategia circular">Circular strategy</h3>
+              <p class="capability-copy" data-en="Design of resale programs tailored to the club and its fanbase." data-es="Diseño de programas de reventa adaptados al club y a su base de fans.">Design of resale programs tailored to the club and its fanbase.</p>
+            </article>
+
+            <article class="tile capability-card reveal delay-3">
+              <span class="tile-kicker">03</span>
+              <h3 class="capability-title" data-en="Automated operations" data-es="Operaciones automatizadas">Automated operations</h3>
+              <p class="capability-copy" data-en="Workflows to collect, price, route, and publish products at scale." data-es="Flujos para captar, valorar, enrutar y publicar productos a escala.">Workflows to collect, price, route, and publish products at scale.</p>
+            </article>
+
+            <article class="tile capability-card reveal delay-1">
+              <span class="tile-kicker">04</span>
+              <h3 class="capability-title" data-en="Technology integration" data-es="Integración tecnológica">Technology integration</h3>
+              <p class="capability-copy" data-en="Integration with existing e-commerce, CRM, and payment systems." data-es="Conexión con e-commerce, CRM y sistemas de pago existentes.">Integration with existing e-commerce, CRM, and payment systems.</p>
+            </article>
+
+            <article class="tile capability-card reveal delay-2">
+              <span class="tile-kicker">05</span>
+              <h3 class="capability-title" data-en="Analytics &amp; Reporting" data-es="Analítica y reporting">Analytics &amp; Reporting</h3>
+              <p class="capability-copy" data-en="Live dashboards for inventory, revenue, and fan behavior." data-es="Paneles en vivo sobre inventario, ingresos y comportamiento fan.">Live dashboards for inventory, revenue, and fan behavior.</p>
+            </article>
+
+            <article class="tile capability-card reveal delay-3">
+              <span class="tile-kicker">06</span>
+              <h3 class="capability-title" data-en="Launch and scaling support" data-es="Soporte de lanzamiento y escalado">Launch and scaling support</h3>
+              <p class="capability-copy" data-en="From pilot to full operation with dedicated support." data-es="Del piloto a la operación completa con soporte dedicado.">From pilot to full operation with dedicated support.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="operating" class="slide" data-title="Operating Model">
+        <div class="container">
+          <div style="max-width: 760px; margin-bottom: 76px">
+            <div class="section-label reveal" data-en="10 &mdash; Operating Model" data-es="10 &mdash; Modelo operativo">10 &mdash; Operating Model</div>
+            <h2 class="headline reveal delay-1">
+              <span data-en="Four steps," data-es="Cuatro pasos,">Four steps,</span><br />
+              <span class="italic" data-en="end to end." data-es="de principio a fin.">end to end.</span>
+            </h2>
+          </div>
+
+          <div class="steps">
+            <article class="step reveal delay-1">
+              <div class="step-index">1</div>
+              <h3 class="step-title" data-en="Product intake" data-es="Captación de producto">Product intake</h3>
+              <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
+              <p class="step-copy" data-en="Fans submit product details, condition, and images through the club-branded channel." data-es="Los fans envían detalles, estado e imágenes del producto a través del canal con marca del club.">Fans submit product details, condition, and images through the club-branded channel.</p>
+            </article>
+
+            <article class="step reveal delay-2">
+              <div class="step-index">2</div>
+              <h3 class="step-title" data-en="Valuation" data-es="Valoración">Valuation</h3>
+              <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
+              <p class="step-copy" data-en="Automated pricing rules and credit options are applied consistently across the entire catalog." data-es="Reglas automáticas de precios y opciones de crédito se aplican de forma consistente en todo el catálogo.">Automated pricing rules and credit options are applied consistently across the entire catalog.</p>
+            </article>
+
+            <article class="step reveal delay-3">
+              <div class="step-index">3</div>
+              <h3 class="step-title" data-en="Routing" data-es="Enrutado">Routing</h3>
+              <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
+              <p class="step-copy" data-en="Products are routed to resale, repair, or recycling based on condition and demand." data-es="Los productos se enrutan a reventa, reparación o reciclaje según su estado y la demanda.">Products are routed to resale, repair, or recycling based on condition and demand.</p>
+            </article>
+
+            <article class="step reveal delay-4">
+              <div class="step-index">4</div>
+              <h3 class="step-title" data-en="Dashboard" data-es="Panel">Dashboard</h3>
+              <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
+              <p class="step-copy" data-en="The club monitors requests, inventory, revenue, and lifecycle data in real time." data-es="El club monitoriza solicitudes, inventario, ingresos y datos de ciclo de vida en tiempo real.">The club monitors requests, inventory, revenue, and lifecycle data in real time.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="closing" class="slide slide--dark" data-title="Closing">
+        <div class="container">
+          <div class="section-label reveal" data-en="11 &mdash; Closing" data-es="11 &mdash; Cierre">11 &mdash; Closing</div>
+          <h2 class="headline-xl reveal delay-1">
+            <span data-en="The game" data-es="Empieza">The game</span><br />
+            <span class="italic" data-en="kicks off." data-es="el partido.">kicks off.</span>
+          </h2>
+
+          <div class="grid grid--split" style="margin-top: 58px">
+            <div></div>
+            <div class="lead-block reveal delay-2" style="margin-top: 0">
+              <span class="accent-bar" aria-hidden="true"></span>
+              <p class="sub-text" style="font-size: 28px">
+                <span data-en="Turn your new channel" data-es="Convierte tu nuevo canal">Turn your new channel</span><br />
+                <strong style="color: var(--paper)" data-en="into a new revenue stream." data-es="en una nueva fuente de ingresos.">into a new revenue stream.</strong>
+              </p>
+            </div>
+          </div>
+
+          <div class="closing-footer reveal delay-3">
+            <div>
+              <small data-en="Next step" data-es="Siguiente paso">Next step</small>
+              <strong data-en="Let's build your official resale channel." data-es="Construyamos vuestro canal oficial de reventa.">Let's build your official resale channel.</strong>
+            </div>
+            <div class="footer-mark">
+              <span class="accent-dot" aria-hidden="true"></span>
+              <span data-en="Drelife &middot; Sports Vertical &middot; 2026" data-es="Drelife &middot; Vertical deportes &middot; 2026">Drelife &middot; Sports Vertical &middot; 2026</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const sections = Array.from(document.querySelectorAll(".slide"));
+        const navLinks = Array.from(document.querySelectorAll("[data-section-link]"));
+        const progressBar = document.querySelector("[data-progress-bar]");
+        const langToggle = document.querySelector("[data-lang-toggle]");
+        const localizedElements = Array.from(document.querySelectorAll("[data-en]"));
+        const pageCopy = {
+          es: {
+            title: "Drelife Sports | Presentación Marketplace Fan-to-Fan",
+            description: "Drelife ayuda a los clubes deportivos a lanzar y controlar su marketplace oficial de reventa fan-to-fan.",
+            toggle: "EN",
+            toggleLabel: "Cambiar a inglés",
+          },
+          en: {
+            title: "Drelife Sports | Fan-to-Fan Marketplace Deck",
+            description: "Drelife helps sports clubs launch and control their official fan-to-fan resale marketplace.",
+            toggle: "ES",
+            toggleLabel: "Switch to Spanish",
+          },
+        };
+        let activeIndex = 0;
+        let currentLanguage = "en";
+
+        localizedElements.forEach((element) => {
+          if (!element.dataset.es) {
+            element.dataset.es = element.textContent.trim();
+          }
+        });
+
+        const setLanguage = (language) => {
+          currentLanguage = language;
+          document.documentElement.lang = language;
+          document.title = pageCopy[language].title;
+
+          const description = document.querySelector('meta[name="description"]');
+          const ogTitle = document.querySelector('meta[property="og:title"]');
+          const ogDescription = document.querySelector('meta[property="og:description"]');
+          const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+          const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+
+          if (description) description.setAttribute("content", pageCopy[language].description);
+          if (ogTitle) ogTitle.setAttribute("content", pageCopy[language].title);
+          if (ogDescription) ogDescription.setAttribute("content", pageCopy[language].description);
+          if (twitterTitle) twitterTitle.setAttribute("content", pageCopy[language].title);
+          if (twitterDescription) twitterDescription.setAttribute("content", pageCopy[language].description);
+
+          localizedElements.forEach((element) => {
+            element.textContent = element.dataset[language];
+          });
+
+          if (langToggle) {
+            langToggle.textContent = pageCopy[language].toggle;
+            langToggle.setAttribute("aria-label", pageCopy[language].toggleLabel);
+          }
+        };
+
+        const setActive = (id) => {
+          const index = sections.findIndex((section) => section.id === id);
+          if (index >= 0) {
+            activeIndex = index;
+          }
+
+          const activeSection = sections[activeIndex];
+          document.body.classList.toggle(
+            "is-dark-slide",
+            Boolean(activeSection && activeSection.classList.contains("slide--dark"))
+          );
+
+          navLinks.forEach((link) => {
+            link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
+          });
+        };
+
+        const updateProgress = () => {
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+          const scrollY = window.scrollY || 0;
+
+          if (progressBar) {
+            progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+          }
+
+          document.documentElement.style.setProperty("--ambient-y", `${(scrollY * -0.018).toFixed(2)}px`);
+          document.documentElement.style.setProperty("--grain-y", `${(scrollY * 0.008).toFixed(2)}px`);
+          document.documentElement.style.setProperty("--field-x", `${(Math.sin(scrollY / 520) * 10).toFixed(2)}px`);
+          document.documentElement.style.setProperty("--field-y", `${(scrollY * -0.032).toFixed(2)}px`);
+          document.documentElement.style.setProperty("--speed-shift", `${(scrollY * -0.024).toFixed(2)}px`);
+          document.documentElement.style.setProperty("--speed-shift-inverse", `${(scrollY * 0.014).toFixed(2)}px`);
+        };
+
+        const goToSection = (index) => {
+          const target = sections[Math.min(sections.length - 1, Math.max(0, index))];
+          if (!target) return;
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        };
+
+        const sectionObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setActive(entry.target.id);
+              }
+            });
+          },
+          { threshold: 0.42 }
+        );
+
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.16 }
+        );
+
+        sections.forEach((section) => sectionObserver.observe(section));
+        document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            const id = link.getAttribute("href").replace("#", "");
+            setActive(id);
+          });
+        });
+
+        if (langToggle) {
+          langToggle.addEventListener("click", () => {
+            setLanguage(currentLanguage === "es" ? "en" : "es");
+          });
+        }
+
+        window.addEventListener("scroll", updateProgress, { passive: true });
+        window.addEventListener("resize", updateProgress);
+
+        window.addEventListener("keydown", (event) => {
+          const nextKeys = ["ArrowDown", "ArrowRight", "PageDown", " "];
+          const previousKeys = ["ArrowUp", "ArrowLeft", "PageUp"];
+
+          if (nextKeys.includes(event.key)) {
+            event.preventDefault();
+            goToSection(activeIndex + 1);
+          }
+
+          if (previousKeys.includes(event.key)) {
+            event.preventDefault();
+            goToSection(activeIndex - 1);
+          }
+
+          if (event.key === "Home") {
+            event.preventDefault();
+            goToSection(0);
+          }
+
+          if (event.key === "End") {
+            event.preventDefault();
+            goToSection(sections.length - 1);
+          }
+        });
+
+        setLanguage("en");
+        setActive(window.location.hash ? window.location.hash.slice(1) : "cover");
+        updateProgress();
+      })();
+    </script>
+  </body>
+</html>
