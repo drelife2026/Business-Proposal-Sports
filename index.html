@@ -686,6 +686,10 @@
         line-height: 1.1;
       }
 
+      .flow-step--neon {
+        color: var(--accent);
+      }
+
       .flow-line {
         flex: 1;
         height: 1px;
@@ -2564,6 +2568,55 @@
         line-height: 1.5;
       }
 
+      .data-stats .stat-number {
+        transition: color 180ms ease;
+      }
+
+      .data-stats .tile:nth-child(-n + 2):hover .stat-number {
+        color: var(--accent);
+      }
+
+      .benefit-toggle {
+        all: unset;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        width: 100%;
+        cursor: default;
+        font: inherit;
+      }
+
+      .benefit-toggle:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 6px;
+      }
+
+      .benefit-toggle-icon {
+        position: relative;
+        display: none;
+        width: 18px;
+        height: 18px;
+        flex: 0 0 auto;
+      }
+
+      .benefit-toggle-icon::before,
+      .benefit-toggle-icon::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 14px;
+        height: 1px;
+        background: currentColor;
+        transform: translate(-50%, -50%);
+        transition: transform 180ms ease, opacity 180ms ease;
+      }
+
+      .benefit-toggle-icon::after {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+
       @media (max-width: 820px) {
         .fan-split {
           grid-template-columns: 1fr;
@@ -2574,6 +2627,33 @@
         }
         .fan-right {
           padding: 0;
+        }
+
+        .benefit-toggle {
+          cursor: pointer;
+        }
+
+        .benefit-toggle-icon {
+          display: block;
+        }
+
+        .benefit-card .benefit-copy {
+          max-height: 0;
+          margin-top: 0;
+          overflow: hidden;
+          opacity: 0;
+          transition: max-height 240ms ease, margin-top 240ms ease, opacity 200ms ease;
+        }
+
+        .benefit-card.is-open .benefit-copy {
+          max-height: 220px;
+          margin-top: 16px;
+          opacity: 1;
+        }
+
+        .benefit-card.is-open .benefit-toggle-icon::after {
+          opacity: 0;
+          transform: translate(-50%, -50%) rotate(90deg) scaleX(0);
         }
       }
 
@@ -2636,11 +2716,12 @@
       <ul>
         <li><a href="#cover" data-section-link><span data-en="01 &mdash; Cover" data-es="01 &mdash; Inicio">01 &mdash; Inicio</span><span></span></a></li>
         <li><a href="#fan-economy" data-section-link><span data-en="02 &mdash; Market" data-es="02 &mdash; Mercado">02 &mdash; Mercado</span><span></span></a></li>
-        <li><a href="#shift" data-section-link><span data-en="03 &mdash; Solution" data-es="03 &mdash; Solución">03 &mdash; Solución</span><span></span></a></li>
-        <li><a href="#opportunity" data-section-link><span data-en="04 &mdash; Opportunity" data-es="04 &mdash; Oportunidad">04 &mdash; Oportunidad</span><span></span></a></li>
-        <li><a href="#infrastructure" data-section-link><span data-en="05 &mdash; Infrastructure" data-es="05 &mdash; Infraestructura">05 &mdash; Infraestructura</span><span></span></a></li>
-        <li><a href="#cases" data-section-link><span data-en="06 &mdash; Success Cases" data-es="06 &mdash; Casos de éxito">06 &mdash; Casos de éxito</span><span></span></a></li>
-        <li><a href="#closing" data-section-link><span data-en="07 &mdash; Closing" data-es="07 &mdash; Cierre">07 &mdash; Cierre</span><span></span></a></li>
+        <li><a href="#data" data-section-link><span data-en="03 &mdash; Data" data-es="03 &mdash; Datos">03 &mdash; Datos</span><span></span></a></li>
+        <li><a href="#shift" data-section-link><span data-en="04 &mdash; Solution" data-es="04 &mdash; Solución">04 &mdash; Solución</span><span></span></a></li>
+        <li><a href="#opportunity" data-section-link><span data-en="05 &mdash; Opportunity" data-es="05 &mdash; Oportunidad">05 &mdash; Oportunidad</span><span></span></a></li>
+        <li><a href="#infrastructure" data-section-link><span data-en="06 &mdash; Infrastructure" data-es="06 &mdash; Infraestructura">06 &mdash; Infraestructura</span><span></span></a></li>
+        <li><a href="#cases" data-section-link><span data-en="07 &mdash; Success Cases" data-es="07 &mdash; Casos de éxito">07 &mdash; Casos de éxito</span><span></span></a></li>
+        <li><a href="#closing" data-section-link><span data-en="08 &mdash; Closing" data-es="08 &mdash; Cierre">08 &mdash; Cierre</span><span></span></a></li>
       </ul>
     </nav>
 
@@ -2677,7 +2758,7 @@
                 <h2 class="headline" data-en="The secondary market" data-es="El mercado secundario">El mercado secundario</h2>
                 <span class="headline italic" data-en="in sport is already a fact." data-es="en el deporte ya es un hecho.">en el deporte ya es un hecho.</span>
               </div>
-              <p class="fan-tension" data-en="Fans buy, resell and trade with or without the club. The question is not whether it happens, but who benefits." data-es="Los fans compran, revenden e intercambian con o sin el club. La pregunta no es si ocurre, sino a quién beneficia.">Los fans compran, revenden e intercambian con o sin el club. La pregunta no es <strong>si ocurre</strong>, sino <strong>a quién beneficia</strong>.</p>
+              <p class="fan-tension" data-en="Fans buy, resell and trade with or without the club. The question is not &lt;strong&gt;whether it happens&lt;/strong&gt;, but &lt;strong&gt;who benefits&lt;/strong&gt;." data-es="Los fans compran, revenden e intercambian con o sin el club. La pregunta no es &lt;strong&gt;si ocurre&lt;/strong&gt;, sino &lt;strong&gt;a quién beneficia&lt;/strong&gt;.">Los fans compran, revenden e intercambian con o sin el club. La pregunta no es <strong>si ocurre</strong>, sino <strong>a quién beneficia</strong>.</p>
             </div>
 
             <div class="fan-right">
@@ -2739,16 +2820,32 @@
             </div>
           </div>
 
-          <div class="tile-grid grid--three" style="margin-top: 56px">
+        </div>
+      </section>
+
+      <section id="data" class="slide" data-title="Datos">
+        <div class="container">
+          <div class="grid grid--split data-intro" style="margin-bottom: 56px">
+            <div>
+              <div class="section-label reveal" data-en="03 &mdash; Data" data-es="03 &mdash; Datos">03 &mdash; Datos</div>
+              <h2 class="headline reveal delay-1">
+                <span data-en="The numbers" data-es="Los datos">Los datos</span><br />
+                <span class="italic" data-en="are already here." data-es="ya están aquí.">ya están aquí.</span>
+              </h2>
+            </div>
+            <p class="sub-text reveal delay-2" data-en="Resale is no longer a niche — it is becoming a structural layer of retail, regulation and consumer identity." data-es="La reventa ya no es un nicho: se está convirtiendo en una capa estructural del retail, la regulación y la identidad del consumidor.">La reventa ya no es un nicho: se está convirtiendo en una capa estructural del retail, la regulación y la identidad del consumidor.</p>
+          </div>
+
+          <div class="tile-grid grid--three data-stats">
             <article class="tile tile--hover reveal delay-1">
               <div class="tile-kicker">01</div>
-              <div class="stat-value">$393B</div>
+              <div class="stat-value"><span class="stat-symbol">$</span><span class="stat-number">393</span><span class="stat-symbol">B</span></div>
               <div class="stat-label" data-en="Global resale market by 2030" data-es="Mercado global de reventa en 2030">Mercado global de reventa en 2030</div>
               <p class="stat-detail" data-en="The second-hand market is growing 2–3x faster than traditional retail." data-es="El mercado de segunda mano crece 2–3 veces más rápido que el retail tradicional.">El mercado de segunda mano crece 2–3 veces más rápido que el retail tradicional.</p>
             </article>
             <article class="tile tile--hover reveal delay-2">
               <div class="tile-kicker">02</div>
-              <div class="stat-value">+60%</div>
+              <div class="stat-value"><span class="stat-symbol">+</span><span class="stat-number">60</span><span class="stat-symbol">%</span></div>
               <div class="stat-label" data-en="Of second-hand buyers are Gen Z and Millennials" data-es="De los compradores de segunda mano son Gen Z y Millennials">De los compradores de segunda mano son Gen Z y Millennials</div>
               <p class="stat-detail" data-en="41% of consumers already look for second-hand options before buying new." data-es="El 41% de los consumidores ya busca opciones de segunda mano antes de comprar nuevo.">El 41% de los consumidores ya busca opciones de segunda mano antes de comprar nuevo.</p>
             </article>
@@ -2759,14 +2856,13 @@
               <p class="stat-detail" data-en="Brands will be legally responsible for the full product lifecycle. Acting now is competitive advantage. Acting in 2028 is damage control." data-es="Las marcas serán legalmente responsables del ciclo de vida completo. Actuar ahora es ventaja. Actuar en 2028 es apagar fuegos.">Las marcas serán legalmente responsables del ciclo de vida completo. Actuar ahora es ventaja. Actuar en 2028 es apagar fuegos.</p>
             </article>
           </div>
-
         </div>
       </section>
 
       <section id="shift" class="slide" data-title="The Shift">
         <div class="container">
           <div style="max-width: 760px; margin-bottom: 70px">
-            <div class="section-label reveal" data-en="03 &mdash; Solution" data-es="03 &mdash; Solución">03 &mdash; Solución</div>
+            <div class="section-label reveal" data-en="04 &mdash; Solution" data-es="04 &mdash; Solución">04 &mdash; Solución</div>
             <h2 class="headline reveal delay-1">
               <span data-en="Own Your" data-es="Haz tuyo el">Haz tuyo el</span><br />
               <span class="italic" data-en="Resale Marketplace." data-es="Marketplace de reventa.">Marketplace de reventa.</span>
@@ -2815,12 +2911,12 @@
                 </li>
                 <li>
                   <span class="flow-number">02</span>
-                  <span class="flow-step" data-en="Resell" data-es="Revender">Revender</span>
+                  <span class="flow-step flow-step--neon" data-en="Resell" data-es="Revender">Revender</span>
                   <span class="flow-line" aria-hidden="true"></span>
                 </li>
                 <li>
                   <span class="flow-number">03</span>
-                  <span class="flow-step" data-en="Reactivate" data-es="Reactivar">Reactivar</span>
+                  <span class="flow-step flow-step--neon" data-en="Reactivate" data-es="Reactivar">Reactivar</span>
                   <span class="flow-line" aria-hidden="true"></span>
                 </li>
               </ol>
@@ -2835,7 +2931,7 @@
         <div class="container">
           <div class="grid grid--split" style="margin-bottom: 56px">
             <div>
-              <div class="section-label reveal" data-en="04 &mdash; Opportunity" data-es="04 &mdash; Oportunidad">04 &mdash; Oportunidad</div>
+              <div class="section-label reveal" data-en="05 &mdash; Opportunity" data-es="05 &mdash; Oportunidad">05 &mdash; Oportunidad</div>
               <h2 class="headline reveal delay-1">
                 <span data-en="Four levers," data-es="Cuatro palancas,">Cuatro palancas,</span><br />
                 <span class="italic" data-en="one channel." data-es="un canal.">un canal.</span>
@@ -2845,37 +2941,49 @@
           </div>
 
           <div class="tile-grid grid--four">
-            <article class="tile benefit-card reveal delay-1">
+            <article class="tile benefit-card reveal delay-1" data-benefit-card>
               <span class="tile-kicker">01</span>
               <div>
-                <h3 class="benefit-title" data-en="Engagement" data-es="Vínculo">Vínculo</h3>
+                <button class="benefit-toggle" type="button" data-benefit-toggle aria-expanded="false">
+                  <span class="benefit-title" data-en="Engagement" data-es="Vínculo">Vínculo</span>
+                  <span class="benefit-toggle-icon" aria-hidden="true"></span>
+                </button>
                 <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
                 <p class="benefit-copy" data-en="Reinforce the relationship with fans through new touchpoints across the product lifecycle." data-es="Refuerza la relación con los fans mediante nuevos puntos de contacto a lo largo del ciclo de vida del producto.">Refuerza la relación con los fans mediante nuevos puntos de contacto a lo largo del ciclo de vida del producto.</p>
               </div>
             </article>
 
-            <article class="tile benefit-card reveal delay-2">
+            <article class="tile benefit-card reveal delay-2" data-benefit-card>
               <span class="tile-kicker">02</span>
               <div>
-                <h3 class="benefit-title" data-en="Revenue" data-es="Ingresos">Ingresos</h3>
+                <button class="benefit-toggle" type="button" data-benefit-toggle aria-expanded="false">
+                  <span class="benefit-title" data-en="Revenue" data-es="Ingresos">Ingresos</span>
+                  <span class="benefit-toggle-icon" aria-hidden="true"></span>
+                </button>
                 <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
                 <p class="benefit-copy" data-en="Generate additional revenue from existing products, without needing to produce new stock." data-es="Genera ingresos adicionales a partir de producto ya existente, sin necesidad de producir nuevo stock.">Genera ingresos adicionales a partir de producto ya existente, sin necesidad de producir nuevo stock.</p>
               </div>
             </article>
 
-            <article class="tile benefit-card reveal delay-3">
+            <article class="tile benefit-card reveal delay-3" data-benefit-card>
               <span class="tile-kicker">03</span>
               <div>
-                <h3 class="benefit-title" data-en="Control" data-es="Control">Control</h3>
+                <button class="benefit-toggle" type="button" data-benefit-toggle aria-expanded="false">
+                  <span class="benefit-title" data-en="Control" data-es="Control">Control</span>
+                  <span class="benefit-toggle-icon" aria-hidden="true"></span>
+                </button>
                 <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
                 <p class="benefit-copy" data-en="Maintain full control over pricing, customer experience, and the official resale channel end to end." data-es="Mantén el control total sobre precios, experiencia de cliente y el canal oficial de reventa de principio a fin.">Mantén el control total sobre precios, experiencia de cliente y el canal oficial de reventa de principio a fin.</p>
               </div>
             </article>
 
-            <article class="tile benefit-card reveal delay-4">
+            <article class="tile benefit-card reveal delay-4" data-benefit-card>
               <span class="tile-kicker">04</span>
               <div>
-                <h3 class="benefit-title" data-en="Data" data-es="Datos">Datos</h3>
+                <button class="benefit-toggle" type="button" data-benefit-toggle aria-expanded="false">
+                  <span class="benefit-title" data-en="Data" data-es="Datos">Datos</span>
+                  <span class="benefit-toggle-icon" aria-hidden="true"></span>
+                </button>
                 <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
                 <p class="benefit-copy" data-en="Access strategic insight into behavior, preferences, and the product lifecycle." data-es="Accede a conocimiento estratégico sobre comportamiento, preferencias y ciclo de vida del producto.">Accede a conocimiento estratégico sobre comportamiento, preferencias y ciclo de vida del producto.</p>
               </div>
@@ -2892,7 +3000,7 @@
               <div class="section-label reveal" data-en="06 — Infrastructure" data-es="06 — Infraestructura">06 — Infraestructura</div>
               <h2 class="headline reveal delay-1">
                 <span data-en="The infrastructure" data-es="La infraestructura">La infraestructura</span><br />
-                <span class="italic" data-en="to operate at scale." data-es="para operar a escala.">para operar a escala.</span>
+                <span class="italic" data-en="to operate at scale" data-es="para operar a escala">para operar a escala</span>
               </h2>
             </div>
             <p class="sub-text reveal delay-2" data-en="Technology, logistics, and strategy in a single solution. We run the entire operation so the club only sees results." data-es="Tecnología, logística y estrategia en una sola solución. Nosotros operamos todo para que el club solo vea resultados.">Tecnología, logística y estrategia en una sola solución. Nosotros operamos todo para que el club solo vea resultados.</p>
@@ -2962,7 +3070,7 @@
         <div class="container">
           <div class="grid grid--split" style="margin-bottom: 56px">
             <div>
-              <div class="section-label reveal" data-en="06 &mdash; Success Cases" data-es="06 &mdash; Casos de éxito">06 &mdash; Casos de éxito</div>
+              <div class="section-label reveal" data-en="07 &mdash; Success Cases" data-es="07 &mdash; Casos de éxito">07 &mdash; Casos de éxito</div>
               <h2 class="headline reveal delay-1">
                 <span data-en="Proof across" data-es="Prueba en">Prueba en</span><br />
                 <span class="italic" data-en="sport, retail, and community." data-es="deporte, retail y comunidad.">deporte, retail y comunidad.</span>
@@ -2995,7 +3103,7 @@
 
       <section id="closing" class="slide slide--dark" data-title="Closing">
         <div class="container">
-          <div class="section-label reveal" data-en="07 &mdash; Closing" data-es="07 &mdash; Cierre">07 &mdash; Cierre</div>
+          <div class="section-label reveal" data-en="08 &mdash; Closing" data-es="08 &mdash; Cierre">08 &mdash; Cierre</div>
           <h2 class="headline-xl reveal delay-1">
             <span data-en="The pilot" data-es="El piloto">El piloto</span><br />
             <span class="italic" data-en="is ready." data-es="está listo.">está listo.</span>
@@ -3016,7 +3124,7 @@
               <a href="https://www.thecircularhubpoweredbydrelife.com/" target="_blank" rel="noopener noreferrer" data-en="Access our Circular Hub" data-es="Accede a nuestro Circular Hub">Accede a nuestro Circular Hub</a>
             </p>
             <p class="sub-text">
-              <span data-en="Let's talk about how to move forward to build this project together:" data-es="Hablemos sobre cómo avanzar para construir este proyecto juntos:">Hablemos sobre cómo avanzar para construir este proyecto juntos:</span>
+              <span data-en="Let's build this project together:" data-es="Contruyamos este proyecto juntos:">Contruyamos este proyecto juntos:</span>
               <a href="mailto:hola@drelife.com">hola@drelife.com</a>
             </p>
           </div>
@@ -3041,6 +3149,8 @@
         const progressBar = document.querySelector("[data-progress-bar]");
         const langToggle = document.querySelector("[data-lang-toggle]");
         const localizedElements = Array.from(document.querySelectorAll("[data-en]"));
+        const benefitToggles = Array.from(document.querySelectorAll("[data-benefit-toggle]"));
+        const benefitMedia = window.matchMedia("(max-width: 820px)");
         const pageCopy = {
           es: {
             title: "Drelife Sports | Presentación Marketplace Fan-to-Fan",
@@ -3060,7 +3170,7 @@
 
         localizedElements.forEach((element) => {
           if (!element.dataset.es) {
-            element.dataset.es = element.textContent.trim();
+            element.dataset.es = element.innerHTML.trim();
           }
         });
 
@@ -3082,7 +3192,7 @@
           if (twitterDescription) twitterDescription.setAttribute("content", pageCopy[language].description);
 
           localizedElements.forEach((element) => {
-            element.textContent = element.dataset[language];
+            element.innerHTML = element.dataset[language];
           });
 
           if (langToggle) {
@@ -3131,6 +3241,22 @@
           target.scrollIntoView({ behavior: "smooth", block: "start" });
         };
 
+        const setBenefitCard = (card, isOpen) => {
+          const toggle = card.querySelector("[data-benefit-toggle]");
+          card.classList.toggle("is-open", isOpen);
+          if (toggle) {
+            toggle.setAttribute("aria-expanded", String(isOpen));
+          }
+        };
+
+        const syncBenefitCards = () => {
+          benefitToggles.forEach((toggle) => {
+            const card = toggle.closest("[data-benefit-card]");
+            if (!card) return;
+            setBenefitCard(card, !benefitMedia.matches);
+          });
+        };
+
         const sectionObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
@@ -3163,6 +3289,21 @@
             setActive(id);
           });
         });
+
+        benefitToggles.forEach((toggle) => {
+          toggle.addEventListener("click", () => {
+            if (!benefitMedia.matches) return;
+            const card = toggle.closest("[data-benefit-card]");
+            if (!card) return;
+            setBenefitCard(card, !card.classList.contains("is-open"));
+          });
+        });
+
+        if (benefitMedia.addEventListener) {
+          benefitMedia.addEventListener("change", syncBenefitCards);
+        } else {
+          benefitMedia.addListener(syncBenefitCards);
+        }
 
         if (langToggle) {
           langToggle.addEventListener("click", () => {
@@ -3199,6 +3340,7 @@
         });
 
         setLanguage("es");
+        syncBenefitCards();
         setActive(window.location.hash ? window.location.hash.slice(1) : "cover");
         updateProgress();
       })();
