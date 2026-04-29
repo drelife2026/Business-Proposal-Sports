@@ -1,25 +1,25 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Drelife Sports | Fan-to-Fan Marketplace Deck</title>
+    <title>Drelife Sports | Presentación Marketplace Fan-to-Fan</title>
     <meta
       name="description"
-      content="Drelife helps sports clubs launch and control their official fan-to-fan resale marketplace."
+      content="Drelife ayuda a los clubes deportivos a lanzar y controlar su marketplace oficial de reventa fan-to-fan."
     />
     <meta name="author" content="Drelife" />
-    <meta property="og:title" content="Drelife Sports | Fan-to-Fan Marketplace Deck" />
+    <meta property="og:title" content="Drelife Sports | Presentación Marketplace Fan-to-Fan" />
     <meta
       property="og:description"
-      content="Turn resale into a new channel for engagement, revenue, and circularity."
+      content="Convierte la reventa en un nuevo canal de vínculo, ingresos y circularidad."
     />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Drelife Sports | Fan-to-Fan Marketplace Deck" />
+    <meta name="twitter:title" content="Drelife Sports | Presentación Marketplace Fan-to-Fan" />
     <meta
       name="twitter:description"
-      content="Turn resale into a new channel for engagement, revenue, and circularity."
+      content="Convierte la reventa en un nuevo canal de vínculo, ingresos y circularidad."
     />
 
     <style>
@@ -827,6 +827,24 @@
         margin-top: 90px;
         padding-top: 34px;
         border-top: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .closing-actions {
+        display: grid;
+        gap: 14px;
+        max-width: 780px;
+        margin-top: 42px;
+      }
+
+      .closing-actions .sub-text {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.42;
+      }
+
+      .closing-actions a {
+        border-bottom: 1px solid currentColor;
+        overflow-wrap: anywhere;
       }
 
       .closing-footer small {
@@ -2446,6 +2464,127 @@
           flex-direction: column;
         }
       }
+
+      .fan-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        gap: 90px;
+        min-height: 0;
+        overflow: visible;
+      }
+
+      .fan-left {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 32px;
+      }
+
+      .fan-headline {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .fan-tension {
+        padding-top: 24px;
+        border-top: 1px solid var(--divider);
+        font-size: 15px;
+        color: var(--muted);
+        line-height: 1.65;
+        margin: 0;
+      }
+
+      .fan-tension strong {
+        color: var(--foreground);
+        font-weight: 700;
+      }
+
+      .fan-right {
+        background: transparent;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .fan-right-tag {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 28px;
+      }
+
+      .fan-items {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .fan-item {
+        padding: 18px 0;
+        border-bottom: 1px solid var(--divider);
+      }
+
+      .fan-item--last {
+        border-bottom: none;
+      }
+
+      .fan-item h3 {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--foreground);
+        margin: 0 0 5px;
+        line-height: 1.3;
+      }
+
+      .fan-item p {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      .fan-callout {
+        margin-top: 24px;
+        background: rgba(190, 255, 0, 0.16);
+        border: 1px solid rgba(190, 255, 0, 0.54);
+        border-radius: 4px;
+        padding: 16px 20px;
+      }
+
+      .fan-callout p {
+        font-size: 13px;
+        font-weight: 600;
+        color: #111111;
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 820px) {
+        .fan-split {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .fan-left {
+          padding: 0;
+        }
+        .fan-right {
+          padding: 0;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .fan-left {
+          padding: 0;
+        }
+        .fan-right {
+          padding: 0;
+        }
+      }
     </style>
   </head>
 
@@ -2475,17 +2614,17 @@
 
     <header class="topbar" aria-label="Presentation header">
       <div class="topbar-left">
-        <button class="lang-toggle" type="button" data-lang-toggle aria-label="Switch to Spanish">ES</button>
+        <button class="lang-toggle" type="button" data-lang-toggle aria-label="Cambiar a inglés">ES</button>
         <a class="brand" href="#cover" aria-label="Drelife cover">
           <span class="brand__dot" aria-hidden="true"></span>
           <span class="brand__name">Drelife</span>
-          <span class="brand__context" data-en="&middot; Business Proposal" data-es="&middot; Propuesta comercial">&middot; Business Proposal</span>
+          <span class="brand__context" data-en="&middot; Business Proposal" data-es="&middot; Propuesta comercial">&middot; Propuesta comercial</span>
         </a>
       </div>
       <div class="meta" aria-label="Deck metadata">
-        <span class="meta__year" data-en="2026 Deck" data-es="Deck 2026">2026 Deck</span>
+        <span class="meta__year" data-en="2026 Deck" data-es="Deck 2026">Deck 2026</span>
         <span class="meta__divider" aria-hidden="true"></span>
-        <span data-en="Confidential" data-es="Confidencial">Confidential</span>
+        <span data-en="Confidential" data-es="Confidencial">Confidencial</span>
       </div>
     </header>
 
@@ -2495,13 +2634,13 @@
 
     <nav class="side-nav" aria-label="Presentation sections">
       <ul>
-        <li><a href="#cover" data-section-link><span data-en="01 &mdash; Cover" data-es="01 &mdash; Inicio">01 &mdash; Cover</span><span></span></a></li>
-        <li><a href="#fan-economy" data-section-link><span data-en="02 &mdash; Market" data-es="02 &mdash; Mercado">02 &mdash; Market</span><span></span></a></li>
-        <li><a href="#shift" data-section-link><span data-en="03 &mdash; Solution" data-es="03 &mdash; Solución">03 &mdash; Solution</span><span></span></a></li>
-        <li><a href="#opportunity" data-section-link><span data-en="04 &mdash; Opportunity" data-es="04 &mdash; Oportunidad">04 &mdash; Opportunity</span><span></span></a></li>
-        <li><a href="#infrastructure" data-section-link><span data-en="05 &mdash; Infrastructure" data-es="05 &mdash; Infraestructura">05 &mdash; Infrastructure</span><span></span></a></li>
-        <li><a href="#cases" data-section-link><span data-en="06 &mdash; Success Cases" data-es="06 &mdash; Casos de éxito">06 &mdash; Success Cases</span><span></span></a></li>
-        <li><a href="#closing" data-section-link><span data-en="07 &mdash; Closing" data-es="07 &mdash; Cierre">07 &mdash; Closing</span><span></span></a></li>
+        <li><a href="#cover" data-section-link><span data-en="01 &mdash; Cover" data-es="01 &mdash; Inicio">01 &mdash; Inicio</span><span></span></a></li>
+        <li><a href="#fan-economy" data-section-link><span data-en="02 &mdash; Market" data-es="02 &mdash; Mercado">02 &mdash; Mercado</span><span></span></a></li>
+        <li><a href="#shift" data-section-link><span data-en="03 &mdash; Solution" data-es="03 &mdash; Solución">03 &mdash; Solución</span><span></span></a></li>
+        <li><a href="#opportunity" data-section-link><span data-en="04 &mdash; Opportunity" data-es="04 &mdash; Oportunidad">04 &mdash; Oportunidad</span><span></span></a></li>
+        <li><a href="#infrastructure" data-section-link><span data-en="05 &mdash; Infrastructure" data-es="05 &mdash; Infraestructura">05 &mdash; Infraestructura</span><span></span></a></li>
+        <li><a href="#cases" data-section-link><span data-en="06 &mdash; Success Cases" data-es="06 &mdash; Casos de éxito">06 &mdash; Casos de éxito</span><span></span></a></li>
+        <li><a href="#closing" data-section-link><span data-en="07 &mdash; Closing" data-es="07 &mdash; Cierre">07 &mdash; Cierre</span><span></span></a></li>
       </ul>
     </nav>
 
@@ -2509,10 +2648,10 @@
       <section id="cover" class="slide slide--grid" data-title="Cover">
         <div class="container cover-layout">
           <div>
-            <div class="section-label reveal" data-en="01 &mdash; Cover" data-es="01 &mdash; Inicio">01 &mdash; Cover</div>
+            <div class="section-label reveal" data-en="01 &mdash; Cover" data-es="01 &mdash; Inicio">01 &mdash; Inicio</div>
             <h1 class="headline-xl reveal delay-1">
-              <span data-en="Your fans are already reselling your product." data-es="Tus fans ya revenden tu producto.">Your fans are already reselling your product.</span><br />
-              <span class="italic" data-en="You're not making a penny." data-es="Tú no estás ganando nada.">You're not making a penny.</span>
+              <span data-en="Your fans are already reselling your product." data-es="Tus fans ya revenden tu producto.">Tus fans ya revenden tu producto.</span><br />
+              <span class="italic" data-en="Now you can turn it into an opportunity." data-es="Ahora puedes convertirlo en una oportunidad.">Ahora puedes convertirlo en una oportunidad.</span>
             </h1>
             <div class="lead-block cover-lead reveal delay-2">
               <span class="accent-bar" aria-hidden="true"></span>
@@ -2520,7 +2659,7 @@
                 <div class="eyebrow-row">
                   <span class="accent-dot" aria-hidden="true"></span>
                 </div>
-                <p class="sub-text" data-en="Drelife gives you the official channel to recover that revenue, that data, and that relationship." data-es="Drelife te da el canal oficial para recuperar esos ingresos, ese dato y esa relación.">Drelife gives you the official channel to recover that revenue, that data, and that relationship.</p>
+                <p class="sub-text" data-en="Drelife helps you building the official channel to recover that revenue, that data, and that relationship with your community." data-es="Drelife te ayuda a construir el canal oficial para recuperar esos ingresos, ese dato y esa relación con tu comunidad.">Drelife te ayuda a construir el canal oficial para recuperar esos ingresos, ese dato y esa relación con tu comunidad.</p>
               </div>
             </div>
           </div>
@@ -2529,30 +2668,43 @@
 
       <section id="fan-economy" class="slide" data-title="Fan Economy">
         <div class="container">
-          <div class="grid grid--split">
-            <div>
-              <div class="section-label reveal" data-en="02 &mdash; Market" data-es="02 &mdash; Mercado">02 &mdash; Market</div>
-              <h2 class="headline reveal delay-1">
-                <span data-en="The secondary market" data-es="El mercado secundario">The secondary market</span><br />
-                <span class="italic muted" data-en="in sports is already here." data-es="en el deporte ya es un hecho.">in sports is already here.</span>
-              </h2>
+
+          <div class="fan-split reveal">
+
+            <div class="fan-left">
+              <div class="section-label" data-en="02 — Market" data-es="02 — Mercado">02 — Mercado</div>
+              <div class="fan-headline">
+                <h2 class="headline" data-en="The secondary market" data-es="El mercado secundario">El mercado secundario</h2>
+                <span class="headline italic" data-en="in sport is already a fact." data-es="en el deporte ya es un hecho.">en el deporte ya es un hecho.</span>
+              </div>
+              <p class="fan-tension" data-en="Fans buy, resell and trade with or without the club. The question is not whether it happens, but who benefits." data-es="Los fans compran, revenden e intercambian con o sin el club. La pregunta no es si ocurre, sino a quién beneficia.">Los fans compran, revenden e intercambian con o sin el club. La pregunta no es <strong>si ocurre</strong>, sino <strong>a quién beneficia</strong>.</p>
             </div>
 
-            <div class="insight-stack">
-              <div class="impact-box reveal delay-4">
-                <div class="impact-label" data-en="Outside the club" data-es="Fuera del club">Outside the club</div>
-                <ul class="impact-list">
-                  <li><strong data-en="Revenue" data-es="Ingresos">Revenue</strong><span data-en=" from these transactions does not return to the club" data-es=" derivados de estas transacciones no retornan"> from these transactions does not return to the club</span></li>
-                  <li><strong data-en="The club loses visibility" data-es="El club pierde visibilidad">The club loses visibility</strong><span data-en=" into real market prices" data-es=" sobre precios reales de mercado"> into real market prices</span></li>
-                  <li><strong data-en="Brand experience control" data-es="Control de experiencia de marca">Brand experience control</strong><span data-en=" is diluted" data-es=" se diluye"> is diluted</span></li>
-                  <li><strong data-en="Fan behavior insight" data-es="Insight de comportamiento fan">Fan behavior insight</strong><span data-en=" is not captured" data-es=" no se captura"> is not captured</span></li>
-                </ul>
+            <div class="fan-right">
+              <div class="fan-right-tag" data-en="Outside the club" data-es="Fuera del club">Fuera del club</div>
+              <div class="fan-items">
+                <div class="fan-item">
+                  <h3 data-en="Revenue that never returns" data-es="Ingresos que no retornan">Ingresos que no retornan</h3>
+                  <p data-en="Transactions happen outside the club's ecosystem." data-es="Las transacciones ocurren fuera del ecosistema del club.">Las transacciones ocurren fuera del ecosistema del club.</p>
+                </div>
+                <div class="fan-item">
+                  <h3 data-en="Brand control diluted" data-es="Control de marca diluido">Control de marca diluido</h3>
+                  <p data-en="The resale experience does not reflect the club's values." data-es="La experiencia de reventa no refleja los valores del club.">La experiencia de reventa no refleja los valores del club.</p>
+                </div>
+                <div class="fan-item">
+                  <h3 data-en="Invisible pricing" data-es="Precios invisibles">Precios invisibles</h3>
+                  <p data-en="The club has no visibility on real market prices." data-es="El club no sabe a qué precio real se mueve su producto.">El club no sabe a qué precio real se mueve su producto.</p>
+                </div>
+                <div class="fan-item fan-item--last">
+                  <h3 data-en="Fan data lost" data-es="Datos del fan perdidos">Datos del fan perdidos</h3>
+                  <p data-en="Buyer behaviour never reaches the club." data-es="El comportamiento del comprador nunca llega al club.">El comportamiento del comprador nunca llega al club.</p>
+                </div>
               </div>
-              <div class="divider-top callout reveal delay-4">
-                <span class="accent-dot" aria-hidden="true"></span>
-                <span><strong data-en="The opportunity already exists:" data-es="La oportunidad ya existe:">The opportunity already exists:</strong><span data-en=" transactions, engagement, and data currently happen outside the club ecosystem." data-es=" transacciones, conexiones y datos que hoy ocurren fuera del ecosistema."> transactions, engagement, and data currently happen outside the club ecosystem.</span></span>
+              <div class="fan-callout">
+                <p data-en="The opportunity already exists: transactions, connections and data happening outside the ecosystem today." data-es="La oportunidad ya existe: transacciones, conexiones y datos que hoy ocurren fuera del ecosistema.">La oportunidad ya existe: transacciones, conexiones y datos que hoy ocurren fuera del ecosistema.</p>
               </div>
             </div>
+
           </div>
 
           <div class="vintage-gallery" aria-label="Vintage sportswear archive">
@@ -2560,8 +2712,8 @@
               <figure class="vintage-card">
                 <img src="imagenes/vintage%201.jpg" alt="Vintage sportswear on a football field" loading="lazy" decoding="async" />
                 <figcaption>
-                  <span data-en="Archive 01" data-es="Archivo 01">Archive 01</span>
-                  <strong data-en="Nostalgia as value" data-es="Nostalgia como valor">Nostalgia as value</strong>
+                  <span data-en="Archive 01" data-es="Archivo 01">Archivo 01</span>
+                  <strong data-en="Nostalgia as value" data-es="Nostalgia como valor">Nostalgia como valor</strong>
                 </figcaption>
               </figure>
             </div>
@@ -2570,8 +2722,8 @@
               <figure class="vintage-card">
                 <img src="imagenes/vintage%202.jpg" alt="Close-up of a vintage sports outfit" loading="lazy" decoding="async" />
                 <figcaption>
-                  <span data-en="Archive 02" data-es="Archivo 02">Archive 02</span>
-                  <strong data-en="Style keeps moving" data-es="El estilo sigue vivo">Style keeps moving</strong>
+                  <span data-en="Archive 02" data-es="Archivo 02">Archivo 02</span>
+                  <strong data-en="Style keeps moving" data-es="El estilo sigue vivo">El estilo sigue vivo</strong>
                 </figcaption>
               </figure>
             </div>
@@ -2580,8 +2732,8 @@
               <figure class="vintage-card">
                 <img src="imagenes/vintage3.jpg" alt="Vintage street basketball sportswear" loading="lazy" decoding="async" />
                 <figcaption>
-                  <span data-en="Archive 03" data-es="Archivo 03">Archive 03</span>
-                  <strong data-en="Culture in circulation" data-es="Cultura en circulación">Culture in circulation</strong>
+                  <span data-en="Archive 03" data-es="Archivo 03">Archivo 03</span>
+                  <strong data-en="Culture in circulation" data-es="Cultura en circulación">Cultura en circulación</strong>
                 </figcaption>
               </figure>
             </div>
@@ -2591,88 +2743,88 @@
             <article class="tile tile--hover reveal delay-1">
               <div class="tile-kicker">01</div>
               <div class="stat-value">$393B</div>
-              <div class="stat-label" data-en="Global resale market by 2030" data-es="Mercado global de reventa en 2030">Global resale market by 2030</div>
-              <p class="stat-detail" data-en="The second-hand market is growing 2–3x faster than traditional retail." data-es="El mercado de segunda mano crece 2–3 veces más rápido que el retail tradicional.">The second-hand market is growing 2–3x faster than traditional retail.</p>
+              <div class="stat-label" data-en="Global resale market by 2030" data-es="Mercado global de reventa en 2030">Mercado global de reventa en 2030</div>
+              <p class="stat-detail" data-en="The second-hand market is growing 2–3x faster than traditional retail." data-es="El mercado de segunda mano crece 2–3 veces más rápido que el retail tradicional.">El mercado de segunda mano crece 2–3 veces más rápido que el retail tradicional.</p>
             </article>
             <article class="tile tile--hover reveal delay-2">
               <div class="tile-kicker">02</div>
               <div class="stat-value">+60%</div>
-              <div class="stat-label" data-en="Of second-hand buyers are Gen Z and Millennials" data-es="De los compradores de segunda mano son Gen Z y Millennials">Of second-hand buyers are Gen Z and Millennials</div>
-              <p class="stat-detail" data-en="41% of consumers already look for second-hand options before buying new." data-es="El 41% de los consumidores ya busca opciones de segunda mano antes de comprar nuevo.">41% of consumers already look for second-hand options before buying new.</p>
+              <div class="stat-label" data-en="Of second-hand buyers are Gen Z and Millennials" data-es="De los compradores de segunda mano son Gen Z y Millennials">De los compradores de segunda mano son Gen Z y Millennials</div>
+              <p class="stat-detail" data-en="41% of consumers already look for second-hand options before buying new." data-es="El 41% de los consumidores ya busca opciones de segunda mano antes de comprar nuevo.">El 41% de los consumidores ya busca opciones de segunda mano antes de comprar nuevo.</p>
             </article>
             <article class="tile tile--dark reveal delay-3">
               <div class="tile-kicker">03</div>
               <div class="stat-value">2030</div>
-              <div class="stat-label" data-en="EU regulation forces action by 2030" data-es="La regulación UE obliga a actuar antes de 2030">EU regulation forces action by 2030</div>
-              <p class="stat-detail" data-en="Brands will be legally responsible for the full product lifecycle. Acting now is competitive advantage. Acting in 2028 is damage control." data-es="Las marcas serán legalmente responsables del ciclo de vida completo. Actuar ahora es ventaja. Actuar en 2028 es apagar fuegos.">Brands will be legally responsible for the full product lifecycle. Acting now is competitive advantage. Acting in 2028 is damage control.</p>
+              <div class="stat-label" data-en="EU regulation forces action by 2030" data-es="La regulación UE obliga a actuar antes de 2030">La regulación UE obliga a actuar antes de 2030</div>
+              <p class="stat-detail" data-en="Brands will be legally responsible for the full product lifecycle. Acting now is competitive advantage. Acting in 2028 is damage control." data-es="Las marcas serán legalmente responsables del ciclo de vida completo. Actuar ahora es ventaja. Actuar en 2028 es apagar fuegos.">Las marcas serán legalmente responsables del ciclo de vida completo. Actuar ahora es ventaja. Actuar en 2028 es apagar fuegos.</p>
             </article>
           </div>
+
         </div>
       </section>
 
       <section id="shift" class="slide" data-title="The Shift">
         <div class="container">
           <div style="max-width: 760px; margin-bottom: 70px">
-            <div class="section-label reveal" data-en="03 &mdash; Solution" data-es="03 &mdash; Solución">03 &mdash; Solution</div>
+            <div class="section-label reveal" data-en="03 &mdash; Solution" data-es="03 &mdash; Solución">03 &mdash; Solución</div>
             <h2 class="headline reveal delay-1">
-              <span data-en="Own Your" data-es="Haz tuyo el">Own Your</span><br />
-              <span class="italic" data-en="Resale Marketplace." data-es="Marketplace de reventa.">Resale Marketplace.</span>
+              <span data-en="Own Your" data-es="Haz tuyo el">Haz tuyo el</span><br />
+              <span class="italic" data-en="Resale Marketplace." data-es="Marketplace de reventa.">Marketplace de reventa.</span>
             </h2>
-            <p class="sub-text reveal delay-2" data-en="Every jersey a fan resells on eBay is a sale you no longer control, data you'll never see, and revenue you've lost. Drelife gives that channel back to the club — your brand, your prices, your data." data-es="Cada camiseta que un fan revende en Wallapop es una venta que ya no controlas, un dato que nunca verás y un ingreso que se pierde. Drelife devuelve ese canal al club: tu marca, tus precios, tus datos.">Every jersey a fan resells on eBay is a sale you no longer control, data you'll never see, and revenue you've lost. Drelife gives that channel back to the club — your brand, your prices, your data.</p>
+            <p class="sub-text reveal delay-2" data-en="Every jersey a fan resells on eBay is a sale you no longer control, data you'll never see, and revenue you've lost. Drelife gives that channel back to the club — your brand, your prices, your data." data-es="Cada camiseta que un fan revende en Wallapop es una venta que ya no controlas, un dato que nunca verás y un ingreso que se pierde. Drelife devuelve ese canal al club: tu marca, tus precios, tus datos.">Cada camiseta que un fan revende en Wallapop es una venta que ya no controlas, un dato que nunca verás y un ingreso que se pierde. Drelife devuelve ese canal al club: tu marca, tus precios, tus datos.</p>
           </div>
 
           <div class="flow-panel reveal delay-2">
             <div class="flow-column">
               <div class="flow-heading">
-                <span data-en="Today" data-es="Hoy">Today</span>
+                <span data-en="Today" data-es="Hoy">Hoy</span>
                 <span class="flow-divider" aria-hidden="true"></span>
-                <span data-en="Linear model" data-es="Modelo lineal">Linear model</span>
+                <span data-en="Linear model" data-es="Modelo lineal">Modelo lineal</span>
               </div>
               <ol class="flow-list">
                 <li>
                   <span class="flow-number">01</span>
-                  <span class="flow-step" data-en="Produce" data-es="Producir">Produce</span>
+                  <span class="flow-step" data-en="Produce" data-es="Producir">Producir</span>
                   <span class="flow-line" aria-hidden="true"></span>
                 </li>
                 <li>
                   <span class="flow-number">02</span>
-                  <span class="flow-step" data-en="Sell" data-es="Vender">Sell</span>
+                  <span class="flow-step" data-en="Sell" data-es="Vender">Vender</span>
                   <span class="flow-line" aria-hidden="true"></span>
                 </li>
                 <li>
                   <span class="flow-number">03</span>
-                  <span class="flow-step" data-en="Lose control" data-es="Perder control">Lose control</span>
+                  <span class="flow-step" data-en="Lose control" data-es="Perder control">Perder control</span>
                 </li>
               </ol>
-              <p class="flow-copy" data-en="Value ends the moment the product leaves the store. Everything that happens afterward happens without the club." data-es="El valor termina en el momento en que el producto sale de la tienda. Todo lo que ocurre después pasa sin el club.">Value ends the moment the product leaves the store. Everything that happens afterward happens without the club.</p>
+              <p class="flow-copy" data-en="Value ends the moment the product leaves the store. Everything that happens afterward happens without the club." data-es="El valor termina en el momento en que el producto sale de la tienda. Todo lo que ocurre después pasa sin el club.">El valor termina en el momento en que el producto sale de la tienda. Todo lo que ocurre después pasa sin el club.</p>
             </div>
 
             <div class="flow-column flow-column--dark">
               <div class="flow-heading">
                 <span class="accent-dot" aria-hidden="true"></span>
-                <span data-en="With Drelife" data-es="Con Drelife">With Drelife</span>
+                <span data-en="With Drelife" data-es="Con Drelife">Con Drelife</span>
                 <span class="flow-divider" aria-hidden="true"></span>
-                <span data-en="Circular model" data-es="Modelo circular">Circular model</span>
+                <span data-en="Circular model" data-es="Modelo circular">Modelo circular</span>
               </div>
               <ol class="flow-list">
                 <li>
                   <span class="flow-number">01</span>
-                  <span class="flow-step" data-en="Sell" data-es="Vender">Sell</span>
+                  <span class="flow-step" data-en="Sell" data-es="Vender">Vender</span>
                   <span class="flow-line" aria-hidden="true"></span>
                 </li>
                 <li>
                   <span class="flow-number">02</span>
-                  <span class="flow-step" data-en="Resell" data-es="Revender">Resell</span>
+                  <span class="flow-step" data-en="Resell" data-es="Revender">Revender</span>
                   <span class="flow-line" aria-hidden="true"></span>
                 </li>
                 <li>
                   <span class="flow-number">03</span>
-                  <span class="flow-step" data-en="Reactivate" data-es="Reactivar">Reactivate</span>
+                  <span class="flow-step" data-en="Reactivate" data-es="Reactivar">Reactivar</span>
                   <span class="flow-line" aria-hidden="true"></span>
-             
                 </li>
               </ol>
-              <p class="flow-copy" data-en="Each product becomes a recurring touchpoint, generating revenue, data, and engagement." data-es="Cada producto se convierte en un punto de contacto recurrente, generando ingresos, datos y conexión.">Each product becomes a recurring touchpoint, generating revenue, data, and engagement.</p>
+              <p class="flow-copy" data-en="Each product becomes a recurring touchpoint, generating revenue, data, and engagement." data-es="Cada producto se convierte en un punto de contacto recurrente, generando ingresos, datos y conexión.">Cada producto se convierte en un punto de contacto recurrente, generando ingresos, datos y conexión.</p>
             </div>
           </div>
 
@@ -2683,31 +2835,31 @@
         <div class="container">
           <div class="grid grid--split" style="margin-bottom: 56px">
             <div>
-              <div class="section-label reveal" data-en="04 &mdash; Opportunity" data-es="04 &mdash; Oportunidad">04 &mdash; Opportunity</div>
+              <div class="section-label reveal" data-en="04 &mdash; Opportunity" data-es="04 &mdash; Oportunidad">04 &mdash; Oportunidad</div>
               <h2 class="headline reveal delay-1">
-                <span data-en="Four levers," data-es="Cuatro palancas,">Four levers,</span><br />
-                <span class="italic" data-en="one channel." data-es="un canal.">one channel.</span>
+                <span data-en="Four levers," data-es="Cuatro palancas,">Cuatro palancas,</span><br />
+                <span class="italic" data-en="one channel." data-es="un canal.">un canal.</span>
               </h2>
             </div>
-            <p class="sub-text reveal delay-2" data-en="An official resale channel unlocks value across four dimensions that accumulate over time." data-es="Un canal oficial de reventa desbloquea valor en cuatro dimensiones que se acumulan con el tiempo.">An official resale channel unlocks value across four dimensions that accumulate over time.</p>
+            <p class="sub-text reveal delay-2" data-en="An official resale channel unlocks value across four dimensions that accumulate over time." data-es="Un canal oficial de reventa desbloquea valor en cuatro dimensiones que se acumulan con el tiempo.">Un canal oficial de reventa desbloquea valor en cuatro dimensiones que se acumulan con el tiempo.</p>
           </div>
 
           <div class="tile-grid grid--four">
             <article class="tile benefit-card reveal delay-1">
               <span class="tile-kicker">01</span>
               <div>
-                <h3 class="benefit-title" data-en="Engagement" data-es="Vínculo">Engagement</h3>
+                <h3 class="benefit-title" data-en="Engagement" data-es="Vínculo">Vínculo</h3>
                 <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
-                <p class="benefit-copy" data-en="Reinforce the relationship with fans through new touchpoints across the product lifecycle." data-es="Refuerza la relación con los fans mediante nuevos puntos de contacto a lo largo del ciclo de vida del producto.">Reinforce the relationship with fans through new touchpoints across the product lifecycle.</p>
+                <p class="benefit-copy" data-en="Reinforce the relationship with fans through new touchpoints across the product lifecycle." data-es="Refuerza la relación con los fans mediante nuevos puntos de contacto a lo largo del ciclo de vida del producto.">Refuerza la relación con los fans mediante nuevos puntos de contacto a lo largo del ciclo de vida del producto.</p>
               </div>
             </article>
 
             <article class="tile benefit-card reveal delay-2">
               <span class="tile-kicker">02</span>
               <div>
-                <h3 class="benefit-title" data-en="Revenue" data-es="Ingresos">Revenue</h3>
+                <h3 class="benefit-title" data-en="Revenue" data-es="Ingresos">Ingresos</h3>
                 <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
-                <p class="benefit-copy" data-en="Generate additional revenue from existing products, without needing to produce new stock." data-es="Genera ingresos adicionales a partir de producto ya existente, sin necesidad de producir nuevo stock.">Generate additional revenue from existing products, without needing to produce new stock.</p>
+                <p class="benefit-copy" data-en="Generate additional revenue from existing products, without needing to produce new stock." data-es="Genera ingresos adicionales a partir de producto ya existente, sin necesidad de producir nuevo stock.">Genera ingresos adicionales a partir de producto ya existente, sin necesidad de producir nuevo stock.</p>
               </div>
             </article>
 
@@ -2716,16 +2868,16 @@
               <div>
                 <h3 class="benefit-title" data-en="Control" data-es="Control">Control</h3>
                 <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
-                <p class="benefit-copy" data-en="Maintain full control over pricing, customer experience, and the official resale channel end to end." data-es="Mantén el control total sobre precios, experiencia de cliente y el canal oficial de reventa de principio a fin.">Maintain full control over pricing, customer experience, and the official resale channel from end to end.</p>
+                <p class="benefit-copy" data-en="Maintain full control over pricing, customer experience, and the official resale channel end to end." data-es="Mantén el control total sobre precios, experiencia de cliente y el canal oficial de reventa de principio a fin.">Mantén el control total sobre precios, experiencia de cliente y el canal oficial de reventa de principio a fin.</p>
               </div>
             </article>
 
             <article class="tile benefit-card reveal delay-4">
               <span class="tile-kicker">04</span>
               <div>
-                <h3 class="benefit-title" data-en="Data" data-es="Datos">Data</h3>
+                <h3 class="benefit-title" data-en="Data" data-es="Datos">Datos</h3>
                 <span class="accent-bar" aria-hidden="true" style="margin-top: 18px"></span>
-                <p class="benefit-copy" data-en="Access strategic insight into behavior, preferences, and the product lifecycle." data-es="Accede a conocimiento estratégico sobre comportamiento, preferencias y ciclo de vida del producto.">Access strategic insight into behavior, preferences, and the product lifecycle.</p>
+                <p class="benefit-copy" data-en="Access strategic insight into behavior, preferences, and the product lifecycle." data-es="Accede a conocimiento estratégico sobre comportamiento, preferencias y ciclo de vida del producto.">Accede a conocimiento estratégico sobre comportamiento, preferencias y ciclo de vida del producto.</p>
               </div>
             </article>
           </div>
@@ -2810,35 +2962,32 @@
         <div class="container">
           <div class="grid grid--split" style="margin-bottom: 56px">
             <div>
-              <div class="section-label reveal" data-en="06 &mdash; Success Cases" data-es="06 &mdash; Casos de éxito">06 &mdash; Success Cases</div>
+              <div class="section-label reveal" data-en="06 &mdash; Success Cases" data-es="06 &mdash; Casos de éxito">06 &mdash; Casos de éxito</div>
               <h2 class="headline reveal delay-1">
-                <span data-en="Proof across" data-es="Prueba en">Proof across</span><br />
-                <span class="italic" data-en="sport, retail, and community." data-es="deporte, retail y comunidad.">sport, retail, and community.</span>
+                <span data-en="Proof across" data-es="Prueba en">Prueba en</span><br />
+                <span class="italic" data-en="sport, retail, and community." data-es="deporte, retail y comunidad.">deporte, retail y comunidad.</span>
               </h2>
             </div>
-            <p class="sub-text reveal delay-2" data-en="Three references that show how circular resale can generate value for clubs, venues, and sports brands without breaking the premium brand experience." data-es="Tres referencias que muestran cómo la reventa circular puede generar valor en clubes, espacios y marcas deportivas sin romper la experiencia premium de marca.">Three references that show how circular resale can generate value for clubs, venues, and sports brands without breaking the premium brand experience.</p>
+            <p class="sub-text reveal delay-2" data-en="Three references that show how circular resale can generate value for clubs, venues, and sports brands without breaking the premium brand experience." data-es="Tres referencias que muestran cómo la reventa circular puede generar valor en clubes, espacios y marcas deportivas sin romper la experiencia premium de marca.">Tres referencias que muestran cómo la reventa circular puede generar valor en clubes, espacios y marcas deportivas sin romper la experiencia premium de marca.</p>
           </div>
 
           <div class="tile-grid grid--three">
             <article class="tile case-card reveal delay-1">
               <div class="case-logo" aria-hidden="true"><img src="imagenes/barca-logo.png" alt="" loading="lazy" decoding="async" /></div>
-              <div class="case-type" data-en="Club ecosystem" data-es="Ecosistema club">Club ecosystem</div>
               <h3 class="case-title">FC Barcelona</h3>
-              <p class="case-copy" data-en="A benchmark for turning highly emotional fan products into a controlled, official, and data-rich resale experience." data-es="Referencia para convertir producto fan de alto componente emocional en una experiencia de reventa controlada, oficial y rica en datos.">A benchmark for turning highly emotional fan products into a controlled, official, and data-rich resale experience.</p>
+              <p class="case-copy" data-en="A benchmark for turning highly emotional fan products into a controlled, official, and data-rich resale experience." data-es="Referencia para convertir producto fan de alto componente emocional en una experiencia de reventa controlada, oficial y rica en datos.">Referencia para convertir producto fan de alto componente emocional en una experiencia de reventa controlada, oficial y rica en datos.</p>
             </article>
 
             <article class="tile case-card reveal delay-2">
               <div class="case-logo" aria-hidden="true"><img src="imagenes/velodrom-logo.png" alt="" loading="lazy" decoding="async" /></div>
-              <div class="case-type" data-en="Venue and community" data-es="Espacio y comunidad">Venue and community</div>
               <h3 class="case-title">Velodrom</h3>
-              <p class="case-copy" data-en="A circular layer designed around community, recurrence, and products that keep moving between active users." data-es="Una capa circular pensada alrededor de comunidad, recurrencia y productos que siguen moviéndose entre usuarios activos.">A circular layer designed around community, recurrence, and products that keep moving between active users.</p>
+              <p class="case-copy" data-en="A circular layer designed around community, recurrence, and products that keep moving between active users." data-es="Una capa circular pensada alrededor de comunidad, recurrencia y productos que siguen moviéndose entre usuarios activos.">Una capa circular pensada alrededor de comunidad, recurrencia y productos que siguen moviéndose entre usuarios activos.</p>
             </article>
 
             <article class="tile case-card reveal delay-3">
               <div class="case-logo" aria-hidden="true"><img src="imagenes/munich-logo.png" alt="" loading="lazy" decoding="async" /></div>
-              <div class="case-type" data-en="Sports brand" data-es="Marca deportiva">Sports brand</div>
               <h3 class="case-title">Munich Sports</h3>
-              <p class="case-copy" data-en="A product lifecycle approach that extends value beyond the first sale, protecting positioning and customer experience." data-es="Un enfoque de ciclo de vida de producto que extiende el valor más allá de la primera venta, protegiendo posicionamiento y experiencia de cliente.">A product lifecycle approach that extends value beyond the first sale, protecting positioning and customer experience.</p>
+              <p class="case-copy" data-en="A product lifecycle approach that extends value beyond the first sale, protecting positioning and customer experience." data-es="Un enfoque de ciclo de vida de producto que extiende el valor más allá de la primera venta, protegiendo posicionamiento y experiencia de cliente.">Un enfoque de ciclo de vida de producto que extiende el valor más allá de la primera venta, protegiendo posicionamiento y experiencia de cliente.</p>
             </article>
           </div>
         </div>
@@ -2846,10 +2995,10 @@
 
       <section id="closing" class="slide slide--dark" data-title="Closing">
         <div class="container">
-          <div class="section-label reveal" data-en="07 &mdash; Closing" data-es="07 &mdash; Cierre">07 &mdash; Closing</div>
+          <div class="section-label reveal" data-en="07 &mdash; Closing" data-es="07 &mdash; Cierre">07 &mdash; Cierre</div>
           <h2 class="headline-xl reveal delay-1">
-            <span data-en="The pilot" data-es="El piloto">The pilot</span><br />
-            <span class="italic" data-en="is ready." data-es="está listo.">is ready.</span>
+            <span data-en="The pilot" data-es="El piloto">El piloto</span><br />
+            <span class="italic" data-en="is ready." data-es="está listo.">está listo.</span>
           </h2>
 
           <div class="grid grid--split" style="margin-top: 58px">
@@ -2857,18 +3006,29 @@
             <div class="lead-block reveal delay-2" style="margin-top: 0">
               <span class="accent-bar" aria-hidden="true"></span>
               <p class="sub-text" style="font-size: 28px">
-                <span data-en="Live in 90 days." data-es="En marcha en 90 días.">Live in 90 days.</span>
+                <span data-en="Live in 90 days." data-es="En marcha en 90 días.">En marcha en 90 días.</span>
               </p>
             </div>
           </div>
 
+          <div class="closing-actions reveal delay-3">
+            <p class="sub-text">
+              <span data-en="Access our Circular Hub:" data-es="Accede a nuestro Circular Hub:">Accede a nuestro Circular Hub:</span>
+              <a href="https://www.thecircularhubpoweredbydrelife.com/" target="_blank" rel="noopener noreferrer">https://www.thecircularhubpoweredbydrelife.com/</a>
+            </p>
+            <p class="sub-text">
+              <span data-en="Next steps: Let's talk about how to move forward to build this project together:" data-es="Siguientes pasos: Hablemos sobre cómo avanzar para construir este proyecto juntos:">Siguientes pasos: Hablemos sobre cómo avanzar para construir este proyecto juntos:</span>
+              <a href="mailto:hola@drelife.com">hola@drelife.com</a>
+            </p>
+          </div>
+
           <div class="closing-footer reveal delay-3">
             <div>
-              <small data-en="Next step" data-es="Siguiente paso">Next step</small>
+              <small data-en="Next step" data-es="Siguiente paso">Siguiente paso</small>
             </div>
             <div class="footer-mark">
               <span class="accent-dot" aria-hidden="true"></span>
-              <span data-en="Drelife &middot; Sports Vertical &middot; 2026" data-es="Drelife &middot; Vertical deportes &middot; 2026">Drelife &middot; Sports Vertical &middot; 2026</span>
+              <span data-en="Drelife &middot; Sports Vertical &middot; 2026" data-es="Drelife &middot; Vertical deportes &middot; 2026">Drelife &middot; Vertical deportes &middot; 2026</span>
             </div>
           </div>
         </div>
@@ -2886,18 +3046,18 @@
           es: {
             title: "Drelife Sports | Presentación Marketplace Fan-to-Fan",
             description: "Drelife ayuda a los clubes deportivos a lanzar y controlar su marketplace oficial de reventa fan-to-fan.",
-            toggle: "EN",
+            toggle: "ES",
             toggleLabel: "Cambiar a inglés",
           },
           en: {
             title: "Drelife Sports | Fan-to-Fan Marketplace Deck",
             description: "Drelife helps sports clubs launch and control their official fan-to-fan resale marketplace.",
-            toggle: "ES",
+            toggle: "EN",
             toggleLabel: "Switch to Spanish",
           },
         };
         let activeIndex = 0;
-        let currentLanguage = "en";
+        let currentLanguage = "es";
 
         localizedElements.forEach((element) => {
           if (!element.dataset.es) {
@@ -3039,7 +3199,7 @@
           }
         });
 
-        setLanguage("en");
+        setLanguage("es");
         setActive(window.location.hash ? window.location.hash.slice(1) : "cover");
         updateProgress();
       })();
