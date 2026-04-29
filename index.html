@@ -2283,6 +2283,169 @@
           transform: none;
         }
       }
+
+      .infra-flow {
+        display: flex;
+        flex-direction: column;
+        max-width: 720px;
+      }
+
+      .infra-step {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 0 24px;
+      }
+
+      .infra-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .infra-dot {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 700;
+        flex-shrink: 0;
+        z-index: 1;
+      }
+
+      .infra-dot--dark {
+        background: transparent;
+        color: #111111;
+        border: 1.5px solid #111111;
+      }
+
+      .infra-dot--light {
+        background: transparent;
+        color: var(--foreground);
+        border: 1.5px solid #BEFF00;
+      }
+
+      .infra-line {
+        width: 1px;
+        flex: 1;
+        min-height: 32px;
+        background: var(--divider);
+      }
+
+      .infra-content {
+        padding: 4px 0 48px;
+      }
+
+      .infra-step--last .infra-content {
+        padding-bottom: 0;
+      }
+
+      .infra-eyebrow {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }
+
+      .infra-title {
+        font-size: 22px;
+        font-weight: 720;
+        line-height: 1.2;
+        margin: 0 0 10px;
+        color: var(--foreground);
+      }
+
+      .infra-copy {
+        font-size: 15px;
+        color: var(--muted);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .infra-tag {
+        display: inline-block;
+        margin-top: 14px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 5px 12px;
+        background: transparent;
+        border: 1px solid currentColor;
+        border-radius: 4px;
+      }
+
+      .infra-tag--green {
+        color: #111111;
+        border-color: #BEFF00;
+      }
+
+      .infra-tag--dark {
+        color: #111111;
+        border-color: #111111;
+      }
+
+      .infra-footer {
+        margin-top: 48px;
+        padding-top: 24px;
+        border-top: 1px solid var(--divider);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+      }
+
+      #shift .headline + .sub-text {
+        margin-top: 34px;
+      }
+
+      @media (max-width: 820px) {
+        .infra-flow {
+          max-width: 100%;
+        }
+        .infra-title {
+          font-size: 19px;
+        }
+        .infra-content {
+          padding-bottom: 36px;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .infra-step {
+          grid-template-columns: 40px 1fr;
+          gap: 0 16px;
+        }
+        .infra-dot {
+          width: 36px;
+          height: 36px;
+          font-size: 11px;
+        }
+        .infra-title {
+          font-size: 17px;
+        }
+        .infra-copy {
+          font-size: 14px;
+        }
+      }
+
+      @media (min-width: 821px) {
+        #fan-economy .vintage-gallery + .tile-grid {
+          margin-top: 96px !important;
+        }
+
+        #shift .headline + .sub-text {
+          margin-top: 42px;
+        }
+
+        .infra-flow {
+          flex-direction: column;
+        }
+      }
     </style>
   </head>
 
@@ -2571,54 +2734,75 @@
 
       <section id="infrastructure" class="slide slide--soft" data-title="Infrastructure">
         <div class="container">
-          <div class="grid grid--split" style="margin-bottom: 56px">
+
+          <div class="grid grid--split" style="margin-bottom: 64px; align-items: end;">
             <div>
-              <div class="section-label reveal" data-en="05 &mdash; Infrastructure" data-es="05 &mdash; Infraestructura">05 &mdash; Infrastructure</div>
+              <div class="section-label reveal" data-en="06 — Infrastructure" data-es="06 — Infraestructura">06 — Infraestructura</div>
               <h2 class="headline reveal delay-1">
-                <span data-en="The infrastructure" data-es="La infraestructura">The infrastructure</span><br />
-                <span class="italic" data-en="to operate at scale." data-es="para operar a escala.">to operate at scale.</span>
+                <span data-en="The infrastructure" data-es="La infraestructura">La infraestructura</span><br />
+                <span class="italic" data-en="to operate at scale." data-es="para operar a escala.">para operar a escala.</span>
               </h2>
             </div>
-            <p class="sub-text reveal delay-2" data-en="Drelife provides the entire operating layer clubs need to run circular programs reliably: technology, logistics, and strategy in a single solution." data-es="Drelife proporciona toda la capa operativa que los clubes necesitan para ejecutar programas circulares con fiabilidad: tecnología, logística y estrategia en una sola solución.">Drelife provides the entire operating layer clubs need to run circular programs reliably: technology, logistics, and strategy in a single solution.</p>
+            <p class="sub-text reveal delay-2" data-en="Technology, logistics, and strategy in a single solution. We run the entire operation so the club only sees results." data-es="Tecnología, logística y estrategia en una sola solución. Nosotros operamos todo para que el club solo vea resultados.">Tecnología, logística y estrategia en una sola solución. Nosotros operamos todo para que el club solo vea resultados.</p>
           </div>
 
-          <div class="tile-grid grid--three">
-            <article class="tile capability-card reveal delay-1">
-              <span class="tile-kicker">01</span>
-              <h3 class="capability-title" data-en="Reverse logistics" data-es="Logística inversa">Reverse logistics</h3>
-              <p class="capability-copy" data-en="Take-back, authentication, refurbishment, and warehousing." data-es="Recogida, autenticación, reacondicionamiento y almacenamiento.">Take-back, authentication, refurbishment, and warehousing.</p>
-            </article>
+          <div class="infra-flow reveal delay-3">
 
-            <article class="tile capability-card reveal delay-2">
-              <span class="tile-kicker">02</span>
-              <h3 class="capability-title" data-en="Circular strategy" data-es="Estrategia circular">Circular strategy</h3>
-              <p class="capability-copy" data-en="Design of resale programs tailored to the club and its fanbase." data-es="Diseño de programas de reventa adaptados al club y a su base de fans.">Design of resale programs tailored to the club and its fanbase.</p>
-            </article>
+            <div class="infra-step">
+              <div class="infra-left">
+                <div class="infra-dot infra-dot--dark">01</div>
+                <div class="infra-line"></div>
+              </div>
+              <div class="infra-content">
+                <div class="infra-eyebrow" data-en="Collect" data-es="Recogida">Recogida</div>
+                <h3 class="infra-title" data-en="The fan submits the product" data-es="El fan entrega el producto">El fan entrega el producto</h3>
+                <p class="infra-copy" data-en="Through the club's white-label app, the fan submits product details, condition, and photos." data-es="A través de la app white-label del club, el fan envía los datos, el estado y las fotos del producto.">A través de la app white-label del club, el fan envía los datos, el estado y las fotos del producto.</p>
+                <span class="infra-tag infra-tag--green" data-en="Integrated app" data-es="App integrada">App integrada</span>
+              </div>
+            </div>
 
-            <article class="tile capability-card reveal delay-3">
-              <span class="tile-kicker">03</span>
-              <h3 class="capability-title" data-en="Automated operations" data-es="Operaciones automatizadas">Automated operations</h3>
-              <p class="capability-copy" data-en="Workflows to collect, price, route, and publish products at scale." data-es="Flujos para captar, valorar, enrutar y publicar productos a escala.">Workflows to collect, price, route, and publish products at scale.</p>
-            </article>
+            <div class="infra-step">
+              <div class="infra-left">
+                <div class="infra-dot infra-dot--light">02</div>
+                <div class="infra-line"></div>
+              </div>
+              <div class="infra-content">
+                <div class="infra-eyebrow" data-en="Process" data-es="Proceso">Proceso</div>
+                <h3 class="infra-title" data-en="Authentication and refurbishment" data-es="Autenticación y reacondicionamiento">Autenticación y reacondicionamiento</h3>
+                <p class="infra-copy" data-en="We validate the condition, refurbish the product, and generate a store credit for the fan." data-es="Validamos el estado, reacondicionamos el producto y generamos un crédito para el fan.">Validamos el estado, reacondicionamos el producto y generamos un crédito para el fan.</p>
+                <span class="infra-tag infra-tag--dark" data-en="Reverse logistics" data-es="Logística inversa">Logística inversa</span>
+              </div>
+            </div>
 
-            <article class="tile capability-card reveal delay-1">
-              <span class="tile-kicker">04</span>
-              <h3 class="capability-title" data-en="Technology integration" data-es="Integración tecnológica">Technology integration</h3>
-              <p class="capability-copy" data-en="Integration with existing e-commerce, CRM, and payment systems." data-es="Conexión con e-commerce, CRM y sistemas de pago existentes.">Integration with existing e-commerce, CRM, and payment systems.</p>
-            </article>
+            <div class="infra-step">
+              <div class="infra-left">
+                <div class="infra-dot infra-dot--dark">03</div>
+                <div class="infra-line"></div>
+              </div>
+              <div class="infra-content">
+                <div class="infra-eyebrow" data-en="Resell" data-es="Reventa">Reventa</div>
+                <h3 class="infra-title" data-en="Published in the official channel" data-es="Publicación en el canal oficial">Publicación en el canal oficial</h3>
+                <p class="infra-copy" data-en="The product enters the club's resale catalogue with verified pricing, condition, and listing." data-es="El producto entra al catálogo de reventa del club con precio, condición y ficha verificados.">El producto entra al catálogo de reventa del club con precio, condición y ficha verificados.</p>
+                <span class="infra-tag infra-tag--green" data-en="Own-brand channel" data-es="Canal con marca propia">Canal con marca propia</span>
+              </div>
+            </div>
 
-            <article class="tile capability-card reveal delay-2">
-              <span class="tile-kicker">05</span>
-              <h3 class="capability-title" data-en="Analytics &amp; Reporting" data-es="Analítica y reporting">Analytics &amp; Reporting</h3>
-              <p class="capability-copy" data-en="Live dashboards for inventory, revenue, and fan behavior." data-es="Paneles en vivo sobre inventario, ingresos y comportamiento fan.">Live dashboards for inventory, revenue, and fan behavior.</p>
-            </article>
+            <div class="infra-step infra-step--last">
+              <div class="infra-left">
+                <div class="infra-dot infra-dot--light">04</div>
+              </div>
+              <div class="infra-content">
+                <div class="infra-eyebrow" data-en="Optimize" data-es="Optimización">Optimización</div>
+                <h3 class="infra-title" data-en="Real-time data" data-es="Datos en tiempo real">Datos en tiempo real</h3>
+                <p class="infra-copy" data-en="The club monitors revenue, inventory, and fan behaviour from a centralised live dashboard." data-es="El club monitoriza ingresos, inventario y comportamiento fan desde un panel centralizado.">El club monitoriza ingresos, inventario y comportamiento fan desde un panel centralizado.</p>
+                <span class="infra-tag infra-tag--dark" data-en="Live dashboard" data-es="Dashboard en vivo">Dashboard en vivo</span>
+              </div>
+            </div>
 
-            <article class="tile capability-card reveal delay-3">
-              <span class="tile-kicker">06</span>
-              <h3 class="capability-title" data-en="Launch and scaling support" data-es="Soporte de lanzamiento y escalado">Launch and scaling support</h3>
-              <p class="capability-copy" data-en="From pilot to full operation with dedicated support." data-es="Del piloto a la operación completa con soporte dedicado.">From pilot to full operation with dedicated support.</p>
-            </article>
           </div>
+
+          <p class="infra-footer reveal delay-4" data-en="Fully operated by Drelife — technology, logistics, and strategy included." data-es="Operado íntegramente por Drelife — tecnología, logística y estrategia incluidas.">Operado íntegramente por Drelife — tecnología, logística y estrategia incluidas.</p>
+
         </div>
       </section>
 
